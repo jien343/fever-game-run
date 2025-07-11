@@ -129,7 +129,7 @@ export const useRealTimeData = () => {
       {
         id: '1',
         title: isLiveTime ? '🔴 LIVE: Caitlin Clark DOMINATING vs Las Vegas Aces!' : '🔥 Caitlin Clark\'s 22-Point EXPLOSION vs Phoenix Mercury!',
-        thumbnail: 'https://images.pexels.com/photos/1752757/pexels-photo-1752757.jpeg?auto=compress&cs=tinysrgb&w=400',
+        thumbnail: 'https://images.pexels.com/photos/1618269/pexels-photo-1618269.jpeg?auto=compress&cs=tinysrgb&w=400',
         duration: isLiveTime ? 'LIVE' : '3:45',
         views: `${(15.2 + Math.random() * 5).toFixed(1)}K`,
         uploadDate: isLiveTime ? 'LIVE NOW' : '1 day ago',
@@ -139,7 +139,7 @@ export const useRealTimeData = () => {
       {
         id: '2',
         title: '⚡ Indiana Fever Win Streak CONTINUES with DOMINANT Victory!',
-        thumbnail: 'https://images.pexels.com/photos/1544775/pexels-photo-1544775.jpeg?auto=compress&cs=tinysrgb&w=400',
+        thumbnail: 'https://images.pexels.com/photos/1407354/pexels-photo-1407354.jpeg?auto=compress&cs=tinysrgb&w=400',
         duration: '2:18',
         views: `${(8.7 + Math.random() * 2).toFixed(1)}K`,
         uploadDate: '1 day ago',
@@ -148,7 +148,7 @@ export const useRealTimeData = () => {
       {
         id: '3',
         title: '🚀 Top 5 INSANE Plays from Fever vs Mercury Game!',
-        thumbnail: 'https://images.pexels.com/photos/1618269/pexels-photo-1618269.jpeg?auto=compress&cs=tinysrgb&w=400',
+        thumbnail: 'https://images.pexels.com/photos/1752757/pexels-photo-1752757.jpeg?auto=compress&cs=tinysrgb&w=400',
         duration: '4:12',
         views: `${(12.1 + Math.random() * 3).toFixed(1)}K`,
         uploadDate: '2 days ago',
