@@ -1,0 +1,18 @@
+<svg width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Basketball -->
+  <circle cx="32" cy="32" r="28" fill="#FF6B35" stroke="#D63031" stroke-width="2"/>
+  
+  <!-- Basketball lines -->
+  <path d="M8 32 C8 32, 20 20, 32 32 C44 44, 56 32, 56 32" stroke="#D63031" stroke-width="2" fill="none"/>
+  <path d="M32 4 C32 4, 44 16, 32 32 C20 48, 32 60, 32 60" stroke="#D63031" stroke-width="2" fill="none"/>
+  <path d="M4 32 L60 32" stroke="#D63031" stroke-width="2"/>
+  
+  <!-- Fire effect around basketball -->
+  <path d="M15 15 Q12 8, 18 12 Q22 6, 20 14 Q25 10, 22 16" fill="#FFD93D" opacity="0.8"/>
+  <path d="M45 15 Q48 8, 42 12 Q38 6, 40 14 Q35 10, 38 16" fill="#FFD93D" opacity="0.8"/>
+  <path d="M15 49 Q12 56, 18 52 Q22 58, 20 50 Q25 54, 22 48" fill="#FFD93D" opacity="0.8"/>
+  <path d="M45 49 Q48 56, 42 52 Q38 58, 40 50 Q35 54, 38 48" fill="#FFD93D" opacity="0.8"/>
+  
+  <!-- Center highlight -->
+  <circle cx="26" cy="26" r="4" fill="#FFFFFF" opacity="0.6"/>
+</svg>

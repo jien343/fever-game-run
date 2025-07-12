@@ -38,7 +38,7 @@ const Navigation = () => {
           <div className="flex items-center">
             <Link to="/" className="flex items-center space-x-3 transform hover:scale-105 transition-all duration-300">
               <div className="relative">
-                <Trophy className="h-10 w-10 text-yellow-300 animate-bounce" />
+                <img src="/logo.svg" alt="Fever Game Today Logo" className="h-12 w-12 animate-bounce" />
                 <Flame className="h-6 w-6 text-orange-300 absolute -top-1 -right-1 animate-pulse" />
               </div>
               <span className="text-2xl font-black bg-gradient-to-r from-yellow-200 to-white bg-clip-text text-transparent">
