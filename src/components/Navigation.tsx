@@ -89,7 +89,7 @@ const Navigation = () => {
                   : 'hover:bg-white hover:bg-opacity-20 text-gray-300 hover:text-white'
               }`}
             >
-              <span>🔒 PRIVACY</span>
+              <span>PRIVACY</span>
             </Link>
           </div>
           

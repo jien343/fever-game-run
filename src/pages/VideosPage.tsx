@@ -16,52 +16,64 @@ const VideosPage = () => {
 
   const videos = [
     {
+      id: '1',
       title: "Caitlin Clark's 22-Point Performance vs Phoenix Mercury",
       thumbnail: "https://images.pexels.com/photos/1752757/pexels-photo-1752757.jpeg?auto=compress&cs=tinysrgb&w=400",
       duration: "3:45",
       views: "15.2K",
       uploadDate: "1 day ago",
-      channel: "WNBA Official"
+      channel: "WNBA Official",
+      videoId: "dQw4w9WgXcQ"
     },
     {
+      id: '2',
       title: "Indiana Fever Win Streak Continues with Dominant Victory",
-      thumbnail: "https://images.pexels.com/photos/1544775/pexels-photo-1544775.jpeg?auto=compress&cs=tinysrgb&w=400",
+      thumbnail: "https://images.pexels.com/photos/1618269/pexels-photo-1618269.jpeg?auto=compress&cs=tinysrgb&w=400",
       duration: "2:18",
       views: "8.7K",
       uploadDate: "1 day ago",
-      channel: "ESPN"
+      channel: "ESPN",
+      videoId: "jNQXAC9IVRw"
     },
     {
+      id: '3',
       title: "Top 5 Plays from Fever vs Mercury Game",
-      thumbnail: "https://images.pexels.com/photos/1618269/pexels-photo-1618269.jpeg?auto=compress&cs=tinysrgb&w=400",
+      thumbnail: "https://images.pexels.com/photos/1407354/pexels-photo-1407354.jpeg?auto=compress&cs=tinysrgb&w=400",
       duration: "4:12",
       views: "12.1K",
       uploadDate: "2 days ago",
-      channel: "House of Highlights"
+      channel: "House of Highlights",
+      videoId: "M7lc1UVf-VE"
     },
     {
+      id: '4',
       title: "Caitlin Clark Post-Game Interview After Victory",
       thumbnail: "https://images.pexels.com/photos/1544775/pexels-photo-1544775.jpeg?auto=compress&cs=tinysrgb&w=400",
       duration: "5:23",
       views: "9.4K",
       uploadDate: "2 days ago",
-      channel: "Indiana Fever"
+      channel: "Indiana Fever",
+      videoId: "L_jWHffIx5E"
     },
     {
+      id: '5',
       title: "Breaking Down Clark's Incredible Court Vision",
-      thumbnail: "https://images.pexels.com/photos/1407354/pexels-photo-1407354.jpeg?auto=compress&cs=tinysrgb&w=400",
+      thumbnail: "https://images.pexels.com/photos/1618269/pexels-photo-1618269.jpeg?auto=compress&cs=tinysrgb&w=400",
       duration: "6:17",
       views: "18.9K",
       uploadDate: "3 days ago",
-      channel: "Basketball Breakdown"
+      channel: "Basketball Breakdown",
+      videoId: "9bZkp7q19f0"
     },
     {
+      id: '6',
       title: "Fever vs Aces: Full Game Highlights",
-      thumbnail: "https://images.pexels.com/photos/1618269/pexels-photo-1618269.jpeg?auto=compress&cs=tinysrgb&w=400",
+      thumbnail: "https://images.pexels.com/photos/1752757/pexels-photo-1752757.jpeg?auto=compress&cs=tinysrgb&w=400",
       duration: "8:45",
       views: "32.5K",
       uploadDate: "4 days ago",
-      channel: "WNBA Official"
+      channel: "WNBA Official",
+      videoId: "dQw4w9WgXcQ"
     }
   ];
 
