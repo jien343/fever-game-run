@@ -30,6 +30,7 @@ export interface VideoData {
   uploadDate: string;
   channel: string;
   isLive?: boolean;
+  videoId?: string;
 }
 
 export interface LiveStatus {
@@ -129,30 +130,33 @@ export const useRealTimeData = () => {
       {
         id: '1',
         title: isLiveTime ? '🔴 LIVE: Caitlin Clark DOMINATING vs Las Vegas Aces!' : '🔥 Caitlin Clark\'s 22-Point EXPLOSION vs Phoenix Mercury!',
-        thumbnail: 'https://images.pexels.com/photos/1618269/pexels-photo-1618269.jpeg?auto=compress&cs=tinysrgb&w=400',
+        thumbnail: 'https://images.pexels.com/photos/1752757/pexels-photo-1752757.jpeg?auto=compress&cs=tinysrgb&w=400',
         duration: isLiveTime ? 'LIVE' : '3:45',
         views: `${(15.2 + Math.random() * 5).toFixed(1)}K`,
         uploadDate: isLiveTime ? 'LIVE NOW' : '1 day ago',
         channel: 'WNBA Official',
-        isLive: isLiveTime
+        isLive: isLiveTime,
+        videoId: 'dQw4w9WgXcQ' // Demo video ID
       },
       {
         id: '2',
         title: '⚡ Indiana Fever Win Streak CONTINUES with DOMINANT Victory!',
-        thumbnail: 'https://images.pexels.com/photos/1407354/pexels-photo-1407354.jpeg?auto=compress&cs=tinysrgb&w=400',
+        thumbnail: 'https://images.pexels.com/photos/1618269/pexels-photo-1618269.jpeg?auto=compress&cs=tinysrgb&w=400',
         duration: '2:18',
         views: `${(8.7 + Math.random() * 2).toFixed(1)}K`,
         uploadDate: '1 day ago',
-        channel: 'ESPN'
+        channel: 'ESPN',
+        videoId: 'jNQXAC9IVRw' // Demo video ID
       },
       {
         id: '3',
         title: '🚀 Top 5 INSANE Plays from Fever vs Mercury Game!',
-        thumbnail: 'https://images.pexels.com/photos/1752757/pexels-photo-1752757.jpeg?auto=compress&cs=tinysrgb&w=400',
+        thumbnail: 'https://images.pexels.com/photos/1407354/pexels-photo-1407354.jpeg?auto=compress&cs=tinysrgb&w=400',
         duration: '4:12',
         views: `${(12.1 + Math.random() * 3).toFixed(1)}K`,
         uploadDate: '2 days ago',
-        channel: 'House of Highlights'
+        channel: 'House of Highlights',
+        videoId: 'M7lc1UVf-VE' // Demo video ID
       }
     ]);
   };

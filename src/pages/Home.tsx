@@ -294,13 +294,12 @@ const Home = () => {
               <div key={video.id} className="transform hover:scale-105 transition-all duration-300">
                 <VideoCard
                   title={video.title}
-                  thumbnail={index === 0 ? 'https://images.pexels.com/photos/1618269/pexels-photo-1618269.jpeg?auto=compress&cs=tinysrgb&w=400' : 
-                            index === 1 ? 'https://images.pexels.com/photos/1407354/pexels-photo-1407354.jpeg?auto=compress&cs=tinysrgb&w=400' : 
-                            'https://images.pexels.com/photos/1752757/pexels-photo-1752757.jpeg?auto=compress&cs=tinysrgb&w=400'}
+                  thumbnail={video.thumbnail}
                   duration={video.duration}
                   views={video.views}
                   uploadDate={video.uploadDate}
                   channel={video.channel}
+                  videoId={video.videoId}
                 />
                 {video.isLive && (
                   <div className="absolute top-2 left-2 bg-red-500 text-white px-2 py-1 rounded-full text-xs font-bold animate-pulse">
