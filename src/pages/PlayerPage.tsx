@@ -117,22 +117,25 @@ const PlayerPage = () => {
               views="42.8K"
               uploadDate="3 days ago"
               channel="WNBA Official"
+              videoId="dQw4w9WgXcQ"
             />
             <VideoCard
               title="Clark's Logo 3-Pointer Sends Crowd into Frenzy"
-              thumbnail="https://images.pexels.com/photos/1544775/pexels-photo-1544775.jpeg?auto=compress&cs=tinysrgb&w=400"
+              thumbnail="https://images.pexels.com/photos/1618269/pexels-photo-1618269.jpeg?auto=compress&cs=tinysrgb&w=400"
               duration="1:45"
               views="28.3K"
               uploadDate="5 days ago"
               channel="ESPN"
+              videoId="jNQXAC9IVRw"
             />
             <VideoCard
               title="Behind the Scenes: Caitlin Clark's Pre-Game Routine"
-              thumbnail="https://images.pexels.com/photos/1618269/pexels-photo-1618269.jpeg?auto=compress&cs=tinysrgb&w=400"
+              thumbnail="https://images.pexels.com/photos/1407354/pexels-photo-1407354.jpeg?auto=compress&cs=tinysrgb&w=400"
               duration="3:18"
               views="19.7K"
               uploadDate="1 week ago"
               channel="Indiana Fever"
+              videoId="M7lc1UVf-VE"
             />
           </div>
         </section>

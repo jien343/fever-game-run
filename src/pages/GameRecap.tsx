@@ -207,22 +207,25 @@ const GameRecap = () => {
               views="15.2K"
               uploadDate="1 day ago"
               channel="WNBA Official"
+              videoId="dQw4w9WgXcQ"
             />
             <VideoCard
               title="Best Plays from Fever vs Mercury - Full Highlights"
-              thumbnail="https://images.pexels.com/photos/1544775/pexels-photo-1544775.jpeg?auto=compress&cs=tinysrgb&w=400"
+              thumbnail="https://images.pexels.com/photos/1618269/pexels-photo-1618269.jpeg?auto=compress&cs=tinysrgb&w=400"
               duration="5:32"
               views="22.8K"
               uploadDate="1 day ago"
               channel="ESPN"
+              videoId="jNQXAC9IVRw"
             />
             <VideoCard
               title="Caitlin Clark's 5 Three-Pointers in Victory"
-              thumbnail="https://images.pexels.com/photos/1618269/pexels-photo-1618269.jpeg?auto=compress&cs=tinysrgb&w=400"
+              thumbnail="https://images.pexels.com/photos/1407354/pexels-photo-1407354.jpeg?auto=compress&cs=tinysrgb&w=400"
               duration="2:18"
               views="18.7K"
               uploadDate="1 day ago"
               channel="House of Highlights"
+              videoId="M7lc1UVf-VE"
             />
           </div>
         </section>
