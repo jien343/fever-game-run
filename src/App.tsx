@@ -6,6 +6,7 @@ import PlayerPage from './pages/PlayerPage';
 import VideosPage from './pages/VideosPage';
 import GameRecap from './pages/GameRecap';
 import NotFound from './pages/NotFound';
+import PrivacyPolicy from './pages/PrivacyPolicy';
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
           <Route path="/player/caitlin-clark" element={<PlayerPage />} />
           <Route path="/videos" element={<VideosPage />} />
           <Route path="/recap/:gameId" element={<GameRecap />} />
+          <Route path="/privacy" element={<PrivacyPolicy />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </div>

@@ -81,6 +81,16 @@ const Navigation = () => {
               <Video className="h-5 w-5" />
               <span>🎬 VIDEOS</span>
             </Link>
+            <Link 
+              to="/privacy" 
+              className={`flex items-center space-x-2 px-4 py-2 rounded-full text-sm font-semibold transition-all duration-300 ${
+                isActive('/privacy') 
+                  ? 'bg-yellow-300 text-red-600 shadow-lg' 
+                  : 'hover:bg-white hover:bg-opacity-20 text-gray-300 hover:text-white'
+              }`}
+            >
+              <span>🔒 PRIVACY</span>
+            </Link>
           </div>
           
           <div className="md:hidden">
