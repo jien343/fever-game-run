@@ -17,12 +17,24 @@ const Footer = () => {
           </div>
           
           <div className="flex flex-wrap justify-center gap-6 text-sm font-medium">
-            <Link to="/" className="hover:text-yellow-400 transition-colors">Home</Link>
-            <Link to="/news" className="hover:text-yellow-400 transition-colors">News & Blog</Link>
-            <Link to="/about" className="hover:text-yellow-400 transition-colors">About Us</Link>
-            <Link to="/contact" className="hover:text-yellow-400 transition-colors">Contact</Link>
-            <Link to="/privacy" className="hover:text-yellow-400 transition-colors">Privacy Policy</Link>
-            <Link to="/terms" className="hover:text-yellow-400 transition-colors">Terms of Service</Link>
+            <div className="flex flex-col space-y-2">
+              <h3 className="text-gray-400 font-bold uppercase tracking-wider mb-2">Main</h3>
+              <Link to="/" className="hover:text-yellow-400 transition-colors">Home</Link>
+              <Link to="/news" className="hover:text-yellow-400 transition-colors">News & Blog</Link>
+              <Link to="/about" className="hover:text-yellow-400 transition-colors">About Us</Link>
+              <Link to="/contact" className="hover:text-yellow-400 transition-colors">Contact</Link>
+            </div>
+            <div className="flex flex-col space-y-2">
+              <h3 className="text-gray-400 font-bold uppercase tracking-wider mb-2">Guides & Analysis</h3>
+              <Link to="/guides/how-to-watch-fever" className="hover:text-yellow-400 transition-colors">How to Watch Free</Link>
+              <Link to="/guides/caitlin-clark-impact" className="hover:text-yellow-400 transition-colors">Caitlin Clark Stats</Link>
+              <Link to="/guides/fever-season-preview" className="hover:text-yellow-400 transition-colors">2026 Season Preview</Link>
+            </div>
+            <div className="flex flex-col space-y-2">
+              <h3 className="text-gray-400 font-bold uppercase tracking-wider mb-2">Legal</h3>
+              <Link to="/privacy" className="hover:text-yellow-400 transition-colors">Privacy Policy</Link>
+              <Link to="/terms" className="hover:text-yellow-400 transition-colors">Terms of Service</Link>
+            </div>
           </div>
         </div>
         

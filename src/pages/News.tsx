@@ -130,6 +130,30 @@ const News = () => {
 
         {/* Removed effectivecpmnetwork ad */}
 
+        {/* Featured Guides Section for SEO Internal Linking */}
+        <div className="mt-16 bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden">
+          <div className="bg-gradient-to-r from-red-600 to-red-800 px-6 py-4">
+            <h2 className="text-2xl font-bold text-white flex items-center">
+              <FileText className="h-6 w-6 mr-2" />
+              Featured Guides & Deep Dives
+            </h2>
+          </div>
+          <div className="p-6 md:p-8 grid grid-cols-1 md:grid-cols-3 gap-6">
+            <Link to="/guides/how-to-watch-fever" className="group block bg-gray-50 rounded-xl p-6 hover:bg-red-50 border border-gray-100 hover:border-red-100 transition-all">
+              <h3 className="text-lg font-bold text-gray-900 group-hover:text-red-700 mb-2">How to Watch Free 📺</h3>
+              <p className="text-sm text-gray-600">The ultimate 2026 guide to streaming Indiana Fever games on ION, Prime, and League Pass.</p>
+            </Link>
+            <Link to="/guides/caitlin-clark-impact" className="group block bg-gray-50 rounded-xl p-6 hover:bg-red-50 border border-gray-100 hover:border-red-100 transition-all">
+              <h3 className="text-lg font-bold text-gray-900 group-hover:text-red-700 mb-2">Caitlin Clark Stats 📈</h3>
+              <p className="text-sm text-gray-600">Deep statistical analysis of Clark's impact on the Fever's offense and WNBA viewership.</p>
+            </Link>
+            <Link to="/guides/fever-season-preview" className="group block bg-gray-50 rounded-xl p-6 hover:bg-red-50 border border-gray-100 hover:border-red-100 transition-all">
+              <h3 className="text-lg font-bold text-gray-900 group-hover:text-red-700 mb-2">2026 Season Preview 🏀</h3>
+              <p className="text-sm text-gray-600">Roster breakdowns, playoff predictions, and key matchups for the upcoming season.</p>
+            </Link>
+          </div>
+        </div>
+
         {/* AdSense Slot inside content to show text context to crawler */}
         <div className="mt-12 text-center p-6 bg-white rounded-xl shadow-sm border border-gray-100">
           <p className="text-sm text-gray-500 mb-4">Advertisement</p>
