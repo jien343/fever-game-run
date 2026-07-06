@@ -171,7 +171,7 @@ const NewsArticle = () => {
 
       {/* Article Content */}
       <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-        <AdWrapper scriptSrc="//sompneaztecs.com/gAwhTjBYrbYyBNG/144793" />
+        <AdWrapper scriptSrc="//basionsassay.com/gS5NYpqxJC21IMFEG/144793" />
         <article className="prose prose-lg prose-red max-w-none text-gray-800 mt-8">
           {article.content.map((paragraph: string, idx: number) => {
             const isContextHeader = paragraph.includes('📊 Fever Tactical Breakdown');
@@ -208,6 +208,7 @@ const NewsArticle = () => {
           </div>
         )}
 
+        {/*
         <div className="mt-12 pt-8 border-t border-gray-200 text-center">
           <p className="text-gray-500 mb-4">Advertisement</p>
           <ins className="adsbygoogle"
@@ -217,6 +218,7 @@ const NewsArticle = () => {
                data-ad-client="ca-pub-1766207958063879"
                data-ad-slot="auto"></ins>
         </div>
+        */}
       </div>
     </div>
   );

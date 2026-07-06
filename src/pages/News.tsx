@@ -154,7 +154,8 @@ const News = () => {
           </div>
         </div>
 
-        {/* AdSense Slot inside content to show text context to crawler */}
+        {/* AdSense Slot inside content to show text context to crawler (COMMENTED OUT PENDING APPROVAL) */}
+        {/*
         <div className="mt-12 text-center p-6 bg-white rounded-xl shadow-sm border border-gray-100">
           <p className="text-sm text-gray-500 mb-4">Advertisement</p>
           <ins className="adsbygoogle"
@@ -164,6 +165,7 @@ const News = () => {
                data-ad-format="auto"
                data-full-width-responsive="true"></ins>
         </div>
+        */}
       </div>
     </div>
   );
