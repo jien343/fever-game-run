@@ -104,7 +104,6 @@ const CaitlinClarkImpact = () => {
       </div>
 
       <div className="max-w-4xl mx-auto px-4 py-8">
-        <AdWrapper scriptSrc="https://pl29886421.effectivecpmnetwork.com/10/a5/52/10a552baba58acb99192864c58e71170.js" />
       </div>
 
       {/* Main Content */}

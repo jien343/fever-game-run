@@ -113,7 +113,6 @@ export default function SchedulePage() {
           </div>
         </div>
 
-        <AdWrapper scriptSrc="//ao.grindaldenim.com/sr5qcTSYk67Ia/143423" />
 
         {loading ? (
           <div className="space-y-4">

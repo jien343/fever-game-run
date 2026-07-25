@@ -80,11 +80,11 @@ const GameActions: React.FC<GameActionsProps> = ({ game }) => {
         {game.status === 'live' && (
           <>
             <button
-              onClick={() => window.open('https://www.fubo.tv/welcome', '_blank')}
+              onClick={() => window.open('https://www.amazon.com/gp/video/offers?tag=fevergame01-20', '_blank')}
               className={`${buttonClass} bg-red-600 hover:bg-red-700 shadow-lg shadow-red-500/50 animate-pulse`}
             >
               <Play className="h-4 w-4 mr-2" />
-              Watch Free (FuboTV)
+              Watch Live on Prime
             </button>
             <button
               onClick={handleViewStats}
