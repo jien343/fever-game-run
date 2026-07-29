@@ -1,0 +1,13 @@
+# Fever Game Today
+> Live WNBA Scores, Caitlin Clark Stats & Indiana Fever Highlights
+
+Fever Game Today is the ultimate fan destination for Indiana Fever basketball. We provide real-time game updates, detailed player statistics, season averages, and curated video analysis.
+
+## Key Content
+- **Live Scores**: Real-time updates for all Indiana Fever WNBA games.
+- **Caitlin Clark Stats**: Tracking record-breaking three-pointers, assists, and overall impact on the WNBA.
+- **Guides**: Comprehensive guides on how to watch Fever games on TV and streaming (Prime Video, ION, WNBA League Pass).
+
+## Official Links
+- Website: https://fevergame.space/
+- Contact: contact@fever-game.run
