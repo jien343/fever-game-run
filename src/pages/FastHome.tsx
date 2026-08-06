@@ -28,22 +28,20 @@ const QuickLoader = () => (
 
 // 移动端优化的 Hero 组件
 const MobileHero = React.memo(() => (
-  <div className="bg-gradient-to-r from-red-900 to-black text-white py-8">
-    <div className="max-w-7xl mx-auto px-4 text-center">
-      <div className="flex items-center justify-center mb-4">
-        <Flame className="h-6 w-6 text-yellow-300 mr-2" />
-        <h1 className="text-2xl font-black text-white">Indiana Fever Game Today — Live Scores & Updates</h1>
-        <Flame className="h-6 w-6 text-yellow-300 ml-2" />
-      </div>
-      <p className="text-base text-yellow-100 mb-6 font-bold">
-        🔥 CAITLIN CLARK IS ON FIRE! 🔥
+  <div className="bg-gradient-to-br from-black via-red-950 to-black text-white py-6 px-5">
+    <div className="text-center">
+      <h1 className="text-xl font-black text-white leading-tight mb-1">
+        Indiana Fever Game Today
+      </h1>
+      <p className="text-sm text-yellow-200/80 font-semibold mb-5">
+        Live Scores · Stats · Highlights
       </p>
-      <div className="flex flex-col gap-3 px-4">
-        <button onClick={() => document.getElementById('todays-game')?.scrollIntoView({ behavior: 'smooth' })} className="bg-gradient-to-r from-yellow-400 to-orange-500 text-black px-6 py-3 rounded-full font-bold text-base">
-          🏀 TODAY'S GAME
+      <div className="flex gap-3">
+        <button onClick={() => document.getElementById('todays-game')?.scrollIntoView({ behavior: 'smooth' })} className="flex-1 bg-gradient-to-r from-yellow-400 to-orange-500 text-black px-4 py-3 rounded-xl font-bold text-sm shadow-lg shadow-yellow-500/30 active:scale-95 transition-transform">
+          🏀 Today's Game
         </button>
-        <button onClick={() => document.getElementById('highlights')?.scrollIntoView({ behavior: 'smooth' })} className="bg-transparent border-2 border-yellow-300 text-yellow-300 px-6 py-3 rounded-full font-bold text-base">
-          ⚡ HIGHLIGHTS
+        <button onClick={() => document.getElementById('highlights')?.scrollIntoView({ behavior: 'smooth' })} className="flex-1 border-2 border-white/30 text-white px-4 py-3 rounded-xl font-bold text-sm backdrop-blur-sm active:scale-95 transition-transform">
+          ⚡ Highlights
         </button>
       </div>
     </div>
@@ -185,18 +183,18 @@ const FastHome = () => {
 
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 md:py-12">
           {/* 简化的更新信息 */}
-          <div className="mb-4 flex items-center justify-between text-xs md:text-sm">
-            <div className="flex items-center text-gray-600">
-              <div className={`w-2 h-2 bg-green-500 rounded-full mr-2 ${getAnimationClass('animate-pulse')}`}></div>
-              <span>Updated: {lastUpdate.toLocaleTimeString()}</span>
+          <div className="mb-4 flex items-center justify-between text-xs text-gray-500">
+            <div className="flex items-center gap-1.5">
+              <div className={`w-2 h-2 bg-green-500 rounded-full ${getAnimationClass('animate-pulse')}`}></div>
+              <span>{lastUpdate && lastUpdate.getTime() > 0 ? `Updated ${lastUpdate.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}` : 'Updating...'}</span>
             </div>
-            <div className="flex items-center gap-2">
+            <div className="flex items-center gap-1">
               <button 
                 onClick={refreshData}
-                className="flex items-center text-gray-600 hover:text-gray-800 transition-colors p-2"
+                className="flex items-center text-gray-500 hover:text-gray-700 transition-colors p-2 rounded-lg active:bg-gray-100"
+                aria-label="Refresh"
               >
-                <RefreshCw className="h-4 w-4 mr-1" />
-                <span className="hidden sm:inline">Refresh</span>
+                <RefreshCw className="h-4 w-4" />
               </button>
               <BookmarkButton
                 label={t('bookmark.label')}
@@ -206,7 +204,7 @@ const FastHome = () => {
                   pressKeysWin: t('bookmark.pressKeysWin'),
                   copied: t('bookmark.copied'),
                 }}
-                className="text-gray-600 hover:text-gray-800 p-2"
+                className="text-gray-500 hover:text-gray-700 p-2"
               />
             </div>
           </div>
@@ -228,9 +226,9 @@ const FastHome = () => {
           </div>
 
           <section id="todays-game" className="mb-8">
-            <div className="flex items-center mb-6">
-              <Trophy className={`h-6 w-6 md:h-8 md:w-8 text-orange-500 mr-3 ${getAnimationClass('animate-bounce')}`} />
-              <h2 className="text-xl md:text-3xl font-black text-gray-800">
+            <div className="flex items-center mb-4 md:mb-6">
+              <Trophy className={`h-5 w-5 md:h-8 md:w-8 text-orange-500 mr-2 md:mr-3 ${getAnimationClass('animate-bounce')}`} />
+              <h2 className="text-lg md:text-3xl font-black text-gray-800">
                 {todayGame ? "Today's Game" : "Off-Season Hub"}
               </h2>
             </div>
@@ -267,18 +265,18 @@ const FastHome = () => {
                   <Trophy className="h-48 w-48 text-yellow-500" />
                 </div>
                 <div className="relative z-10">
-                  <div className="flex items-center mb-4">
-                    <Star className={`h-6 w-6 text-yellow-400 mr-2 ${getAnimationClass('animate-pulse')}`} />
-                    <h3 className="text-xl md:text-2xl font-black text-white">
+                  <div className="flex items-center mb-3">
+                    <Star className={`h-5 w-5 md:h-6 md:w-6 text-yellow-400 mr-2 ${getAnimationClass('animate-pulse')}`} />
+                    <h3 className="text-lg md:text-2xl font-black text-white">
                       Player Deep Dive
                     </h3>
                   </div>
-                  <p className="text-gray-300 mb-6 text-sm md:text-base leading-relaxed max-w-sm">
-                    Explore Caitlin Clark's monumental impact, career stats, and deep tactical analysis. Meet the face of the new Indiana Fever era!
+                  <p className="text-gray-300 mb-4 text-xs md:text-base leading-relaxed">
+                    Explore Caitlin Clark's impact, career stats, and tactical analysis.
                   </p>
-                  <div className="inline-flex items-center text-sm md:text-base font-bold text-black bg-yellow-400 rounded-full px-6 py-3 hover:bg-yellow-300 transition-colors">
+                  <div className="inline-flex items-center text-xs md:text-base font-bold text-black bg-yellow-400 rounded-full px-5 py-2.5 md:px-6 md:py-3 hover:bg-yellow-300 transition-colors active:scale-95">
                     <span>Explore Roster</span>
-                    <ExternalLink className="h-4 w-4 ml-2" />
+                    <ExternalLink className="h-3.5 w-3.5 md:h-4 md:w-4 ml-1.5" />
                   </div>
                 </div>
               </Link>
@@ -293,9 +291,9 @@ const FastHome = () => {
           {/* Caitlin Clark 统计 */}
           {playerStats && (
             <section id="player-stats" className="mb-8">
-              <div className="flex items-center mb-6">
-                <Star className={`h-6 w-6 md:h-8 md:w-8 text-yellow-500 mr-3 ${getAnimationClass('animate-spin')}`} />
-                <h2 className="text-xl md:text-3xl font-black text-gray-800">
+              <div className="flex items-center mb-4 md:mb-6">
+                <Star className={`h-5 w-5 md:h-8 md:w-8 text-yellow-500 mr-2 md:mr-3`} />
+                <h2 className="text-lg md:text-3xl font-black text-gray-800">
                   Caitlin Clark Stats
                 </h2>
               </div>
@@ -330,9 +328,9 @@ const FastHome = () => {
           {/* 昨日比赛 */}
           {yesterdayGame && (
             <section className="mb-8">
-              <div className="flex items-center mb-6">
-                <Flame className={`h-6 w-6 md:h-8 md:w-8 text-red-500 mr-3 ${getAnimationClass('animate-pulse')}`} />
-                <h2 className="text-xl md:text-3xl font-black text-gray-800">
+              <div className="flex items-center mb-4 md:mb-6">
+                <Flame className={`h-5 w-5 md:h-8 md:w-8 text-red-500 mr-2 md:mr-3 ${getAnimationClass('animate-pulse')}`} />
+                <h2 className="text-lg md:text-3xl font-black text-gray-800">
                   Recent Game Results
                 </h2>
               </div>
@@ -350,9 +348,9 @@ const FastHome = () => {
 
           {/* 最新视频 */}
           <section id="highlights">
-            <div className="flex items-center mb-6">
-              <Video className={`h-6 w-6 md:h-8 md:w-8 text-red-500 mr-3 ${getAnimationClass('animate-bounce')}`} />
-              <h2 className="text-xl md:text-3xl font-black text-gray-800">
+            <div className="flex items-center mb-4 md:mb-6">
+              <Video className={`h-5 w-5 md:h-8 md:w-8 text-red-500 mr-2 md:mr-3 ${getAnimationClass('animate-bounce')}`} />
+              <h2 className="text-lg md:text-3xl font-black text-gray-800">
                 Latest Highlights
               </h2>
             </div>

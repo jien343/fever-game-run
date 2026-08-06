@@ -1,6 +1,5 @@
 import React from 'react';
-import { Clock, MapPin, Flame } from 'lucide-react';
-import GameActions from './GameActions';
+import { Clock, MapPin, Flame, Play, ExternalLink, BarChart3, Video } from 'lucide-react';
 
 interface MobileGameCardProps {
   homeTeam: string;
@@ -28,93 +27,165 @@ const MobileGameCard: React.FC<MobileGameCardProps> = ({
   const getStatusInfo = () => {
     switch (status) {
       case 'live':
-        return { color: 'bg-red-500', text: '🔴 LIVE', textColor: 'text-white' };
+        return { gradient: 'from-red-600 to-orange-500', text: '🔴 LIVE NOW', pulse: true };
       case 'finished':
-        return { color: 'bg-green-500', text: '✅ FINAL', textColor: 'text-white' };
+        return { gradient: 'from-green-600 to-emerald-500', text: '✅ FINAL', pulse: false };
       default:
-        return { color: 'bg-blue-500', text: '⏰ UPCOMING', textColor: 'text-white' };
+        return { gradient: 'from-blue-600 to-indigo-500', text: '⏰ UPCOMING', pulse: false };
     }
+  };
+
+  const shortenTeam = (name: string) => {
+    const map: Record<string, string> = {
+      'Las Vegas Aces': 'Aces',
+      'Indiana Fever': 'Fever',
+      'New York Liberty': 'Liberty',
+      'Connecticut Sun': 'Sun',
+      'Chicago Sky': 'Sky',
+      'Seattle Storm': 'Storm',
+      'Minnesota Lynx': 'Lynx',
+      'Phoenix Mercury': 'Mercury',
+      'Dallas Wings': 'Wings',
+      'Atlanta Dream': 'Dream',
+      'Washington Mystics': 'Mystics',
+      'Los Angeles Sparks': 'Sparks',
+      'Golden State Valkyries': 'Valkyries',
+    };
+    for (const [full, short] of Object.entries(map)) {
+      if (name.includes(full) || name.includes(short)) return short;
+    }
+    // Fallback: use last word
+    return name.split(' ').pop() || name;
   };
 
   const statusInfo = getStatusInfo();
 
   return (
-    <div className="bg-white rounded-lg shadow-md border border-gray-200 overflow-hidden">
-      {/* Header */}
-      <div className="bg-gray-50 px-3 py-2 flex justify-between items-center gap-2">
-        <span className={`${statusInfo.color} ${statusInfo.textColor} px-2 py-1 rounded text-sm font-bold`}>
+    <div className="rounded-2xl overflow-hidden shadow-lg border border-gray-100" style={{ background: 'linear-gradient(135deg, #ffffff 0%, #f8fafc 100%)' }}>
+      {/* Status Header */}
+      <div className={`bg-gradient-to-r ${statusInfo.gradient} px-4 py-2.5 flex items-center justify-between`}>
+        <span className={`text-white text-sm font-extrabold tracking-wide ${statusInfo.pulse ? 'animate-pulse' : ''}`}>
           {statusInfo.text}
         </span>
         {platform && (
-          <span className="text-[11px] text-gray-700 bg-gray-200 px-2 py-1 rounded whitespace-nowrap">
+          <span className="bg-white/20 backdrop-blur-sm text-white text-xs font-bold px-2.5 py-1 rounded-full">
             📺 {platform}
           </span>
         )}
       </div>
 
-      {/* Teams and Scores */}
-      <div className="p-4">
-        <div className="flex items-center justify-between mb-4 gap-3">
+      {/* Scoreboard */}
+      <div className="px-4 py-5">
+        <div className="flex items-center justify-between">
           {/* Away Team */}
-          <div className="text-center flex-1 min-w-0">
-            <div className="text-xs sm:text-sm font-bold text-gray-800 mb-2 leading-tight px-1 min-h-[2.5rem] flex items-center justify-center">
-              <span className="line-clamp-2 break-words">
-                {awayTeam.includes('Las Vegas') ? 'Las Vegas Aces' : 
-                 awayTeam.includes('Indiana') ? 'Indiana Fever' : awayTeam}
-              </span>
+          <div className="flex-1 text-center">
+            <div className="text-sm font-black text-gray-800 mb-2 tracking-tight">
+              {shortenTeam(awayTeam)}
             </div>
-            <div className="text-lg sm:text-xl font-black text-gray-900 bg-gray-100 rounded px-2 py-1 inline-block min-w-[3rem]">
-              {typeof awayScore === 'number' ? awayScore : '--'}
+            <div className={`text-3xl font-black tabular-nums rounded-xl py-2 px-3 inline-block min-w-[4rem] ${
+              status === 'finished' && typeof awayScore === 'number' && typeof homeScore === 'number' && awayScore > homeScore
+                ? 'text-green-700 bg-green-50 ring-2 ring-green-200'
+                : 'text-gray-800 bg-gray-50'
+            }`}>
+              {typeof awayScore === 'number' ? awayScore : '—'}
             </div>
           </div>
 
-          {/* VS */}
-          <div className="mx-2 text-center">
-            <div className="text-xs font-bold text-gray-500">VS</div>
-            {status === 'live' && (
-              <Flame className="h-4 w-4 mx-auto mt-1 text-red-500" />
+          {/* VS Divider */}
+          <div className="mx-3 flex flex-col items-center">
+            {status === 'live' ? (
+              <Flame className="h-6 w-6 text-red-500 animate-pulse" />
+            ) : (
+              <div className="w-8 h-8 rounded-full bg-gray-100 flex items-center justify-center">
+                <span className="text-xs font-bold text-gray-400">VS</span>
+              </div>
             )}
           </div>
 
           {/* Home Team */}
-          <div className="text-center flex-1 min-w-0">
-            <div className="text-xs sm:text-sm font-bold text-gray-800 mb-2 leading-tight px-1 min-h-[2.5rem] flex items-center justify-center">
-              <span className="line-clamp-2 break-words">
-                {homeTeam.includes('Las Vegas') ? 'Las Vegas Aces' : 
-                 homeTeam.includes('Indiana') ? 'Indiana Fever' : homeTeam}
-              </span>
+          <div className="flex-1 text-center">
+            <div className="text-sm font-black text-gray-800 mb-2 tracking-tight">
+              {shortenTeam(homeTeam)}
             </div>
-            <div className="text-lg sm:text-xl font-black text-gray-900 bg-gray-100 rounded px-2 py-1 inline-block min-w-[3rem]">
-              {typeof homeScore === 'number' ? homeScore : '--'}
+            <div className={`text-3xl font-black tabular-nums rounded-xl py-2 px-3 inline-block min-w-[4rem] ${
+              status === 'finished' && typeof homeScore === 'number' && typeof awayScore === 'number' && homeScore > awayScore
+                ? 'text-green-700 bg-green-50 ring-2 ring-green-200'
+                : 'text-gray-800 bg-gray-50'
+            }`}>
+              {typeof homeScore === 'number' ? homeScore : '—'}
             </div>
           </div>
         </div>
 
-        {/* Game Details */}
-        <div className="bg-gray-50 rounded-lg p-2 space-y-2">
-          <div className="flex items-center text-[12px] text-gray-600">
-            <Clock className="h-3 w-3 mr-1" />
-            <span className="truncate">{date} at {time}</span>
+        {/* Game Info */}
+        <div className="mt-4 flex items-center justify-center gap-4 text-xs text-gray-500">
+          <div className="flex items-center gap-1">
+            <Clock className="h-3.5 w-3.5 text-gray-400" />
+            <span>{date} · {time}</span>
           </div>
-          <div className="flex items-center text-[12px] text-gray-600">
-            <MapPin className="h-3 w-3 mr-1" />
-            <span className="truncate">{venue}</span>
+          <div className="flex items-center gap-1">
+            <MapPin className="h-3.5 w-3.5 text-gray-400" />
+            <span className="truncate max-w-[120px]">{venue}</span>
           </div>
         </div>
+      </div>
 
-        {/* 游戏操作按钮 */}
-        <GameActions game={{
-          id: 'mobile-game',
-          homeTeam,
-          awayTeam,
-          homeScore,
-          awayScore,
-          date,
-          time,
-          venue,
-          status,
-          platform
-        }} />
+      {/* Action Buttons */}
+      <div className="px-4 pb-4">
+        <div className="grid grid-cols-2 gap-2">
+          {status === 'live' && (
+            <>
+              <button
+                onClick={() => window.open('https://www.amazon.com/gp/video/offers?tag=fevergame01-20', '_blank')}
+                className="flex items-center justify-center bg-gradient-to-r from-red-600 to-red-700 text-white rounded-xl py-3 font-bold text-sm shadow-md shadow-red-200 active:scale-95 transition-transform"
+              >
+                <Play className="h-4 w-4 mr-1.5" />
+                Watch Live
+              </button>
+              <button
+                onClick={() => document.getElementById('player-stats')?.scrollIntoView({ behavior: 'smooth' })}
+                className="flex items-center justify-center bg-gray-800 text-white rounded-xl py-3 font-bold text-sm active:scale-95 transition-transform"
+              >
+                <BarChart3 className="h-4 w-4 mr-1.5" />
+                Live Stats
+              </button>
+            </>
+          )}
+          {status === 'upcoming' && (
+            <>
+              <button
+                onClick={() => window.open('https://seatgeek.com/indiana-fever-tickets', '_blank')}
+                className="flex items-center justify-center bg-gradient-to-r from-amber-400 to-orange-400 text-gray-900 rounded-xl py-3 font-bold text-sm shadow-md shadow-amber-100 active:scale-95 transition-transform"
+              >
+                🎟️ Tickets
+              </button>
+              <button
+                onClick={() => window.open('https://www.amazon.com/gp/video/offers?tag=fevergame01-20', '_blank')}
+                className="flex items-center justify-center bg-gradient-to-r from-blue-600 to-indigo-600 text-white rounded-xl py-3 font-bold text-sm shadow-md shadow-blue-200 active:scale-95 transition-transform"
+              >
+                <ExternalLink className="h-4 w-4 mr-1.5" />
+                Prime Video
+              </button>
+            </>
+          )}
+          {status === 'finished' && (
+            <>
+              <button
+                onClick={() => window.open('https://amzn.to/4oPJpPw', '_blank')}
+                className="flex items-center justify-center bg-gradient-to-r from-red-600 to-rose-600 text-white rounded-xl py-3 font-bold text-sm shadow-md shadow-red-200 active:scale-95 transition-transform"
+              >
+                🛒 CC Figure
+              </button>
+              <button
+                onClick={() => document.getElementById('highlights')?.scrollIntoView({ behavior: 'smooth' })}
+                className="flex items-center justify-center bg-gray-800 text-white rounded-xl py-3 font-bold text-sm active:scale-95 transition-transform"
+              >
+                <Video className="h-4 w-4 mr-1.5" />
+                Recap
+              </button>
+            </>
+          )}
+        </div>
       </div>
     </div>
   );
