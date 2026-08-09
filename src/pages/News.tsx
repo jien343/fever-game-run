@@ -3,7 +3,6 @@ import { Helmet } from 'react-helmet-async';
 import { FileText, Calendar, ArrowRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { fetchWnbaNews, WnbaNewsItem } from '../utils/espnProvider';
-import AdWrapper from '../components/AdWrapper';
 
 const fallbackArticles = [
   {

@@ -2,7 +2,6 @@ import React, { useEffect, useState } from 'react';
 import { useParams, Link, Navigate, useLocation } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
 import { Calendar, User, ArrowLeft, Share2, ExternalLink, Brain } from 'lucide-react';
-import AdWrapper from '../components/AdWrapper';
 
 const articlesContent: Record<string, { title: string; date: string; author: string; content: string[] }> = {
   'caitlin-clark-2026-season-preview': {

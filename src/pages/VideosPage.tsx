@@ -4,7 +4,6 @@ import VideoCard from '../components/VideoCard';
 import BookmarkButton from '../components/BookmarkButton';
 import { fetchLatestVideos, LatestVideo } from '../utils/videoProvider';
 import { t } from '../utils/i18n';
-import AdWrapper from '../components/AdWrapper';
 
 const VideosPage = () => {
   const [searchTerm, setSearchTerm] = useState('');
