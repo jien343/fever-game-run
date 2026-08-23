@@ -24,6 +24,7 @@ const CaitlinClarkImpact = lazy(() => import('./pages/guides/CaitlinClarkImpact'
 const FeverSeasonPreview = lazy(() => import('./pages/guides/FeverSeasonPreview'));
 
 import ScrollToTop from './components/ScrollToTop';
+import PrimeYoungAdultBanner from './components/PrimeYoungAdultBanner';
 
 function App() {
   return (
@@ -58,6 +59,7 @@ function App() {
           </main>
           <Footer />
           <InstallPrompt />
+          <PrimeYoungAdultBanner delayMs={5000} />
         </div>
       </Router>
     </HelmetProvider>
