@@ -369,6 +369,31 @@ const CaitlinClarkImpact = () => {
             </div>
           </section>
 
+          {/* Student / Young Adult Prime Promo Banner ($30 Bounty) */}
+          <div className="bg-gradient-to-r from-red-600 to-amber-600 rounded-2xl p-6 md:p-8 text-white shadow-xl my-8">
+            <div className="flex flex-col sm:flex-row items-center justify-between gap-6">
+              <div>
+                <span className="bg-yellow-400 text-black text-xs font-black px-3 py-1 rounded-full uppercase tracking-wider mb-2 inline-block">
+                  🏀 College & Young Adult Fan Special
+                </span>
+                <h3 className="text-xl md:text-2xl font-black mb-2 text-white">
+                  Watch Caitlin Clark & WNBA on Prime for Less!
+                </h3>
+                <p className="text-red-100 text-sm max-w-xl">
+                  Ages 18–24 or currently in college? Claim a <strong>6-Month Free Trial</strong> with Prime for Young Adults (then 50% off). Catch all live Fever broadcasts on Prime Video!
+                </p>
+              </div>
+              <a
+                href="https://www.amazon.com/joinyoungadult?tag=fevergame01-20"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="shrink-0 bg-yellow-400 hover:bg-yellow-300 text-black font-black px-7 py-3.5 rounded-full text-base transition-transform transform hover:scale-105 shadow-lg whitespace-nowrap"
+              >
+                Get 6 Months Free →
+              </a>
+            </div>
+          </div>
+
           {/* Internal Links */}
           <section className="border-t border-gray-200 pt-8">
             <h2 className="text-xl font-bold text-gray-900 mb-4">Continue Exploring</h2>

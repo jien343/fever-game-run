@@ -312,6 +312,30 @@ const HowToWatchFever = () => {
                 <li>Download the Prime Video app on your preferred devices and search for WNBA.</li>
               </ol>
             </div>
+
+            {/* Prime for Young Adults / Students Special Promo ($30 Bounty) */}
+            <div className="bg-gradient-to-r from-amber-500/10 via-orange-500/10 to-yellow-500/10 border-2 border-amber-400 rounded-xl p-6 mb-4">
+              <div className="flex flex-col sm:flex-row items-center justify-between gap-4">
+                <div>
+                  <span className="inline-block bg-amber-500 text-black text-xs font-black px-2.5 py-1 rounded-full uppercase tracking-wider mb-2">
+                    🎓 Student & Young Adult Offer (Ages 18-24)
+                  </span>
+                  <h3 className="text-lg font-black text-gray-900">Are you between 18–24 or a college student?</h3>
+                  <p className="text-sm text-gray-700 mt-1">
+                    Get Amazon Prime at <strong className="text-red-600">50% off</strong> with an extended <strong className="text-red-600">6-Month Free Trial</strong> including full access to Prime Video and live sports!
+                  </p>
+                </div>
+                <a
+                  href="https://www.amazon.com/joinyoungadult?tag=fevergame01-20"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="shrink-0 inline-flex items-center justify-center px-6 py-3 text-sm font-bold text-gray-900 bg-amber-400 hover:bg-amber-300 rounded-full transition-transform transform hover:scale-105 shadow-md"
+                >
+                  Claim 6-Month Trial →
+                </a>
+              </div>
+            </div>
+
             <p className="text-gray-600 text-sm italic">
               Note: Availability and trial eligibility are determined by Amazon and may vary. Check Amazon's current offers for the latest pricing and trial details.
             </p>
