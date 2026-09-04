@@ -225,6 +225,38 @@ const FastHome = () => {
             </Link>
           </div>
 
+          {/* 2026 WNBA Playoffs High Impact Promo Card */}
+          <div className="mb-8 bg-gradient-to-r from-red-700 via-amber-600 to-black text-white p-5 md:p-6 rounded-2xl shadow-xl border border-amber-400/40 relative overflow-hidden">
+            <div className="flex flex-col md:flex-row items-center justify-between gap-4 relative z-10">
+              <div className="flex items-center gap-3">
+                <div className="w-12 h-12 rounded-xl bg-amber-400 text-black flex items-center justify-center font-black text-xl shrink-0 shadow-lg">
+                  🏆
+                </div>
+                <div>
+                  <div className="flex items-center gap-2">
+                    <span className="bg-amber-400 text-black text-[10px] font-black px-2 py-0.5 rounded-full uppercase tracking-wider">
+                      September 18 Kickoff
+                    </span>
+                    <span className="text-xs text-amber-200 font-semibold">26-14 Qualified</span>
+                  </div>
+                  <h3 className="text-lg md:text-xl font-black text-white mt-1">
+                    Indiana Fever 2026 WNBA Playoff Hub
+                  </h3>
+                  <p className="text-xs md:text-sm text-gray-200 mt-0.5">
+                    Schedule, playoff bracket, Caitlin Clark postseason stats & Prime Video stream links!
+                  </p>
+                </div>
+              </div>
+              <Link
+                to="/guides/fever-playoffs-2026"
+                className="w-full md:w-auto text-center shrink-0 bg-gradient-to-r from-amber-400 to-orange-400 hover:from-amber-300 hover:to-orange-300 text-black font-black px-6 py-3 rounded-xl text-sm shadow-md transition-all active:scale-95 flex items-center justify-center gap-2"
+              >
+                <span>Explore Playoff Hub</span>
+                <ExternalLink className="h-4 w-4" />
+              </Link>
+            </div>
+          </div>
+
           <section id="todays-game" className="mb-8">
             <div className="flex items-center mb-4 md:mb-6">
               <Trophy className={`h-5 w-5 md:h-8 md:w-8 text-orange-500 mr-2 md:mr-3 ${getAnimationClass('animate-bounce')}`} />
