@@ -9,15 +9,15 @@ const __dirname = path.dirname(__filename);
 const routes = [
   {
     path: '/',
-    title: '🔴 Live: Indiana Fever Game Score Today - Real-Time WNBA Stats',
-    description: 'Get the live Indiana Fever game score today. Track real-time WNBA updates, Caitlin Clark stats, and watch the Fever game tonight.',
+    title: '🔴 Fever Game Today Score Live | Indiana Fever Score & Stream',
+    description: '🔥 Check the live Indiana Fever game score today! Real-time WNBA scores, Caitlin Clark stats, box score, and watch Fever games live. Updated every 30 seconds.',
     h1: 'Indiana Fever Game Score Today & Live WNBA Updates',
     content: 'Welcome to Fever Game Today. Follow live Indiana Fever scores, Caitlin Clark highlights, and real-time WNBA game updates. Discover how to watch Fever games tonight, view the complete season schedule, and get detailed player statistics.'
   },
   {
     path: '/schedule',
-    title: 'Indiana Fever 2026 Schedule - TV & Streaming Guide',
-    description: 'View the complete 2026 Indiana Fever WNBA schedule. Find out when and where to watch Caitlin Clark and the Fever play on TV and Prime Video.',
+    title: 'Indiana Fever 2026 Schedule & TV Broadcast Guide',
+    description: 'Complete 2026 Indiana Fever WNBA schedule with tip-off times, opponents, TV channels, and live stream links on Prime Video and ION.',
     h1: 'Indiana Fever 2026 Game Schedule',
     content: 'The official 2026 Indiana Fever schedule. Never miss a game with our complete list of upcoming WNBA matchups. Find broadcast information including Prime Video, ION TV, and ESPN networks.'
   },
