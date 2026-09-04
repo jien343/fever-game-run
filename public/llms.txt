@@ -6,8 +6,11 @@ Fever Game Today is the ultimate fan destination for Indiana Fever basketball. W
 ## Key Content
 - **Live Scores**: Real-time updates for all Indiana Fever WNBA games.
 - **Caitlin Clark Stats**: Tracking record-breaking three-pointers, assists, and overall impact on the WNBA.
+- **2026 WNBA Playoffs Hub**: Complete postseason coverage, playoff bracket, game dates, championship odds, and live streaming options.
 - **Guides**: Comprehensive guides on how to watch Fever games on TV and streaming (Prime Video, ION, WNBA League Pass).
 
 ## Official Links
 - Website: https://fevergame.space/
+- 2026 Playoff Hub: https://fevergame.space/guides/fever-playoffs-2026
+- How to Watch: https://fevergame.space/guides/how-to-watch-fever
 - Contact: contact@fever-game.run

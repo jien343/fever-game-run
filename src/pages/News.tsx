@@ -137,18 +137,22 @@ const News = () => {
               Featured Guides & Deep Dives
             </h2>
           </div>
-          <div className="p-6 md:p-8 grid grid-cols-1 md:grid-cols-3 gap-6">
-            <Link to="/guides/how-to-watch-fever" className="group block bg-gray-50 rounded-xl p-6 hover:bg-red-50 border border-gray-100 hover:border-red-100 transition-all">
-              <h3 className="text-lg font-bold text-gray-900 group-hover:text-red-700 mb-2">How to Watch Free 📺</h3>
-              <p className="text-sm text-gray-600">The ultimate 2026 guide to streaming Indiana Fever games on ION, Prime, and League Pass.</p>
+          <div className="p-6 md:p-8 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4">
+            <Link to="/guides/fever-playoffs-2026" className="group block bg-gradient-to-br from-amber-50 to-orange-50 rounded-xl p-5 hover:from-amber-100 hover:to-orange-100 border border-amber-200 transition-all">
+              <h3 className="text-base font-bold text-gray-900 group-hover:text-amber-800 mb-1">2026 Playoff Guide 🏆</h3>
+              <p className="text-xs text-gray-600">Schedule, broadcast channels, and Caitlin Clark playoff stats.</p>
             </Link>
-            <Link to="/guides/caitlin-clark-impact" className="group block bg-gray-50 rounded-xl p-6 hover:bg-red-50 border border-gray-100 hover:border-red-100 transition-all">
-              <h3 className="text-lg font-bold text-gray-900 group-hover:text-red-700 mb-2">Caitlin Clark Stats 📈</h3>
-              <p className="text-sm text-gray-600">Deep statistical analysis of Clark's impact on the Fever's offense and WNBA viewership.</p>
+            <Link to="/guides/how-to-watch-fever" className="group block bg-gray-50 rounded-xl p-5 hover:bg-red-50 border border-gray-100 hover:border-red-100 transition-all">
+              <h3 className="text-base font-bold text-gray-900 group-hover:text-red-700 mb-1">How to Watch Free 📺</h3>
+              <p className="text-xs text-gray-600">Streaming guide for ION, Prime, and League Pass.</p>
             </Link>
-            <Link to="/guides/fever-season-preview" className="group block bg-gray-50 rounded-xl p-6 hover:bg-red-50 border border-gray-100 hover:border-red-100 transition-all">
-              <h3 className="text-lg font-bold text-gray-900 group-hover:text-red-700 mb-2">2026 Season Preview 🏀</h3>
-              <p className="text-sm text-gray-600">Roster breakdowns, playoff predictions, and key matchups for the upcoming season.</p>
+            <Link to="/guides/caitlin-clark-impact" className="group block bg-gray-50 rounded-xl p-5 hover:bg-red-50 border border-gray-100 hover:border-red-100 transition-all">
+              <h3 className="text-base font-bold text-gray-900 group-hover:text-red-700 mb-1">Caitlin Clark Stats 📈</h3>
+              <p className="text-xs text-gray-600">Statistical analysis of Clark's impact on viewership.</p>
+            </Link>
+            <Link to="/guides/fever-season-preview" className="group block bg-gray-50 rounded-xl p-5 hover:bg-red-50 border border-gray-100 hover:border-red-100 transition-all">
+              <h3 className="text-base font-bold text-gray-900 group-hover:text-red-700 mb-1">2026 Season Hub 🏀</h3>
+              <p className="text-xs text-gray-600">Roster breakdowns and postseason predictions.</p>
             </Link>
           </div>
         </div>

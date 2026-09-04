@@ -58,10 +58,17 @@ const routes = [
   },
   {
     path: '/guides/fever-season-preview',
-    title: 'Indiana Fever 2026 Season Preview & Roster Analysis',
-    description: 'Preview the Indiana Fever\'s 2026 season with deep roster analysis, playoff predictions, and key matchups.',
-    h1: 'Indiana Fever 2026 Season Preview',
-    content: 'Everything you need to know about the Indiana Fever\'s 2026 campaign. Read our expert roster analysis, coach strategies, and predictions for their WNBA playoff push.'
+    title: 'Indiana Fever 2026 Season Preview & Predictions',
+    description: 'Detailed preview of the 2026 Indiana Fever season, including roster analysis, key matchups, and playoff predictions.',
+    h1: 'Indiana Fever 2026 WNBA Season Preview',
+    content: 'Get ready for the 2026 Indiana Fever season. Read our comprehensive team preview, roster breakdown, schedule difficulty, and postseason projections.'
+  },
+  {
+    path: '/guides/fever-playoffs-2026',
+    title: '🏆 Indiana Fever 2026 WNBA Playoffs: Schedule, Bracket & Streaming',
+    description: 'Indiana Fever 2026 WNBA Playoff hub! Get live game schedules, playoff seeding, Caitlin Clark stats, broadcast channels, and Prime Video stream links.',
+    h1: 'Indiana Fever 2026 WNBA Playoff Guide: Schedule, Bracket & How to Watch',
+    content: 'Everything you need to follow Caitlin Clark and the Indiana Fever as they compete for the 2026 WNBA Championship. Updated with live broadcast networks, game dates, and tactical analysis.'
   }
 ];
 

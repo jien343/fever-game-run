@@ -22,6 +22,7 @@ const SchedulePage = lazy(() => import('./pages/SchedulePage'));
 const HowToWatchFever = lazy(() => import('./pages/guides/HowToWatchFever'));
 const CaitlinClarkImpact = lazy(() => import('./pages/guides/CaitlinClarkImpact'));
 const FeverSeasonPreview = lazy(() => import('./pages/guides/FeverSeasonPreview'));
+const FeverPlayoffs = lazy(() => import('./pages/guides/FeverPlayoffs'));
 
 import ScrollToTop from './components/ScrollToTop';
 import PrimeYoungAdultBanner from './components/PrimeYoungAdultBanner';
@@ -52,6 +53,7 @@ function App() {
                   <Route path="/guides/how-to-watch-fever" element={<HowToWatchFever />} />
                   <Route path="/guides/caitlin-clark-impact" element={<CaitlinClarkImpact />} />
                   <Route path="/guides/fever-season-preview" element={<FeverSeasonPreview />} />
+                  <Route path="/guides/fever-playoffs-2026" element={<FeverPlayoffs />} />
                   <Route path="*" element={<NotFound />} />
                 </Routes>
               </Suspense>
