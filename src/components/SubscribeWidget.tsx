@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Mail, CheckCircle2 } from 'lucide-react';
+import { saveSubscriberToNeon } from '../utils/neonDb';
 
 const SubscribeWidget = () => {
   const [email, setEmail] = useState('');
@@ -16,11 +17,15 @@ const SubscribeWidget = () => {
       formData.append('entry.107266371', email);
 
       try {
-        await fetch(formUrl, {
+        // 1. 直接持久化写入 Neon PostgreSQL 数据库
+        await saveSubscriberToNeon(email, 'homepage_widget');
+
+        // 2. 同时保留原 Google 表单作为备份
+        fetch(formUrl, {
           method: 'POST',
           mode: 'no-cors',
           body: formData
-        });
+        }).catch(() => {});
         
         setSubscribed(true);
         setEmail('');

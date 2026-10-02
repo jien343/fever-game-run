@@ -12,6 +12,7 @@ import { t } from '../utils/i18n';
 import { fetchLatestVideos } from '../utils/videoProvider';
 import SubscribeWidget from '../components/SubscribeWidget';
 import NextGameCountdown from '../components/NextGameCountdown';
+import OffseasonOverlayPanel from '../components/OffseasonOverlayPanel';
 
 // 懒加载组件 - 进一步优化
 const GameCard = lazy(() => import('../components/GameCard'));
@@ -143,6 +144,20 @@ const FastHome = () => {
     if (highlightsEl) observer.observe(highlightsEl);
     return () => observer.disconnect();
   }, []);
+
+  // Off-season floating overlay panel logic (dismissible with X without altering underlying home)
+  const [showOffseasonPanel, setShowOffseasonPanel] = useState(false);
+  useEffect(() => {
+    const isDismissed = sessionStorage.getItem('fever_offseason_dismissed');
+    if (!isDismissed && !todayGame) {
+      setShowOffseasonPanel(true);
+    }
+  }, [todayGame]);
+
+  const handleCloseOffseasonPanel = () => {
+    setShowOffseasonPanel(false);
+    sessionStorage.setItem('fever_offseason_dismissed', 'true');
+  };
 
   // 快速加载状态 — skeleton mirrors final layout to prevent CLS
   if (loading) {
@@ -490,6 +505,9 @@ const FastHome = () => {
             <button onClick={() => setShowBookmarkToast(false)} className="ml-4 text-gray-400 hover:text-white">✕</button>
           </div>
         )}
+
+        {/* Floating Offseason Overlay Panel (Non-intrusive, dismissible with X without altering underlying home) */}
+        {showOffseasonPanel && <OffseasonOverlayPanel onClose={handleCloseOffseasonPanel} />}
       </div>
     </PerformanceOptimizer>
   );

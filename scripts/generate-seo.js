@@ -9,10 +9,10 @@ const __dirname = path.dirname(__filename);
 const routes = [
   {
     path: '/',
-    title: '🔴 Fever Game Today Score Live | Indiana Fever Score & Stream',
-    description: '🔥 Check the live Indiana Fever game score today! Real-time WNBA scores, Caitlin Clark stats, box score, and watch Fever games live. Updated every 30 seconds.',
-    h1: 'Indiana Fever Game Score Today & Live WNBA Updates',
-    content: 'Welcome to Fever Game Today. Follow live Indiana Fever scores, Caitlin Clark highlights, and real-time WNBA game updates. Discover how to watch Fever games tonight, view the complete season schedule, and get detailed player statistics.'
+    title: 'Indiana Fever Score Today | Fever Game Live Scores & Stats',
+    description: 'Check the live Indiana Fever game score today! Real-time WNBA scores, Caitlin Clark stats, full box score, and watch Fever games live. Updated 24/7.',
+    h1: 'Indiana Fever Score Today & Live Game Updates',
+    content: 'Get the latest Indiana Fever score today with live play-by-play updates, box score breakdowns, and Caitlin Clark highlights. Track Indiana Fever game today scores, WNBA standings, schedule tip-off times, and official broadcast channels.'
   },
   {
     path: '/schedule',
