@@ -464,8 +464,84 @@ const FastHome = () => {
             </div>
           </section>
 
+          {/* Indiana Fever Live Scores & Box Score Hub for Fans & SEO */}
+          <section id="fever-scores-breakdown" className="mt-12 mb-8 bg-white rounded-2xl shadow-lg border border-red-100 p-6 md:p-8">
+            <div className="flex items-center mb-6">
+              <div className="w-10 h-10 rounded-xl bg-red-600 text-white flex items-center justify-center font-black mr-3 shadow-md">
+                🏀
+              </div>
+              <div>
+                <h2 className="text-xl md:text-3xl font-black text-gray-900 tracking-tight">
+                  Indiana Fever Live Scores & Box Score Breakdown
+                </h2>
+                <p className="text-xs md:text-sm text-gray-600 mt-1">
+                  Real-time WNBA scores, quarter-by-quarter scoring analysis, and Caitlin Clark offensive stats
+                </p>
+              </div>
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 text-sm text-gray-700 leading-relaxed mb-6">
+              <div className="bg-gradient-to-br from-red-50 to-orange-50 rounded-xl p-5 border border-red-200">
+                <h3 className="font-black text-red-900 text-base mb-2">
+                  Track Fever Score Today & Live Game Results
+                </h3>
+                <p className="mb-3">
+                  Stay locked into every <strong className="text-red-700">Indiana Fever game score today</strong> with our live play-by-play scoring dashboard. From the opening tip-off to the final buzzer, we provide updated <strong className="text-red-700">fever score</strong> alerts, period scoring runs, field goal shooting percentages, and live WNBA scoreboard summaries.
+                </p>
+                <p>
+                  Whether you are monitoring tonight's matchup against top Eastern Conference rivals or reviewing yesterday's final score, our platform tracks every point, foul, rebound, and scoring drought in real time.
+                </p>
+              </div>
+
+              <div className="bg-gradient-to-br from-amber-50 to-yellow-50 rounded-xl p-5 border border-amber-200">
+                <h3 className="font-black text-amber-900 text-base mb-2">
+                  Caitlin Clark Scoring Stats & Offensive Firepower
+                </h3>
+                <p className="mb-3">
+                  Caitlin Clark continues to rewrite the WNBA record books with signature logo threes and deep range scoring. Check her latest points per game (PPG), three-pointers made (3PM), free throw efficiency, and high-scoring 30-point performances that ignite the Fever offense.
+                </p>
+                <p>
+                  Along with Clark's scoring output, track Aliyah Boston's paint dominance and Kelsey Mitchell's fast-break points to see how Indiana executes their high-tempo scoring attack.
+                </p>
+              </div>
+            </div>
+
+            {/* Score FAQs targeting 13.25K "fever score" and 4.37K "indiana fever game today" */}
+            <div className="border-t border-gray-200 pt-6">
+              <h2 className="text-lg md:text-2xl font-black text-gray-900 mb-4">
+                Frequently Asked Questions: Indiana Fever Scores & Schedule
+              </h2>
+              <div className="space-y-4">
+                <div className="bg-gray-50 rounded-xl p-4 border border-gray-200">
+                  <h3 className="font-bold text-gray-900 text-sm mb-1">
+                    What was the score of the last Indiana Fever game?
+                  </h3>
+                  <p className="text-xs md:text-sm text-gray-600">
+                    The Indiana Fever wrapped up their recent regular season and playoff matchups with high-scoring offensive outputs led by Caitlin Clark and Kelsey Mitchell. You can view the full box score, quarter breakdowns, and video highlights on our scoreboard above.
+                  </p>
+                </div>
+                <div className="bg-gray-50 rounded-xl p-4 border border-gray-200">
+                  <h3 className="font-bold text-gray-900 text-sm mb-1">
+                    How can I check the live score for the Indiana Fever game today?
+                  </h3>
+                  <p className="text-xs md:text-sm text-gray-600">
+                    Bookmark Fever Game Today (Ctrl+D) for real-time live score updates. Our live score ticker updates every 30 seconds during active WNBA games, providing real-time team points, individual player scoring, and lead changes.
+                  </p>
+                </div>
+                <div className="bg-gray-50 rounded-xl p-4 border border-gray-200">
+                  <h3 className="font-bold text-gray-900 text-sm mb-1">
+                    Where can I watch Indiana Fever live games and streaming broadcasts?
+                  </h3>
+                  <p className="text-xs md:text-sm text-gray-600">
+                    Indiana Fever games are broadcast nationally across ESPN, ABC, CBS Sports Network, and Amazon Prime Video. Free over-the-air broadcasts are also available on ION Television during Friday night doubleheaders.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </section>
+
           {/* Related Content / Internal Links */}
-          <section className="mt-12 mb-8">
+          <section className="mt-8 mb-8">
             <h2 className="text-xl md:text-2xl font-bold text-gray-800 mb-4">Explore More</h2>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
               <Link to="/guides/how-to-watch-fever" className="bg-white rounded-xl shadow-md p-5 hover:shadow-lg transition-shadow border border-gray-100">
