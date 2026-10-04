@@ -37,12 +37,15 @@ export default async function handler(req, res) {
       `;
       userData = inserted[0];
     } else {
-      const lastAt = new Date(existing[0].last_checkin_at).getTime();
-      const hoursPassed = (now.getTime() - lastAt) / (1000 * 3600);
-      if (hoursPassed < 24) {
+      const lastAt = new Date(existing[0].last_checkin_at);
+      const lastDateStr = lastAt.toISOString().split('T')[0];
+      const hoursPassed = (now.getTime() - lastAt.getTime()) / (1000 * 3600);
+
+      // 同一自然日且间隔不足 16 小时视为今日已打卡
+      if (nowDateStr === lastDateStr && hoursPassed < 16) {
         return res.status(200).json({
           success: false,
-          message: `You have already checked in today! Please wait ${(24 - hoursPassed).toFixed(1)} hours.`
+          message: `You've already checked in today! Streak is active (${existing[0].checkin_count} Days). Come back tomorrow!`
         });
       }
 

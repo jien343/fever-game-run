@@ -20,7 +20,17 @@ export default async function handler(req, res) {
         id ASC
       LIMIT 20;
     `;
-    return res.status(200).json(rows);
+
+    const stats = await sql`
+      SELECT COUNT(*) as total_users, COALESCE(SUM(checkin_count), 0) as total_checkins 
+      FROM fever_checkins;
+    `;
+
+    return res.status(200).json({
+      users: rows,
+      totalUsers: Number(stats[0]?.total_users || rows.length),
+      totalCheckIns: Number(stats[0]?.total_checkins || rows.length)
+    });
   } catch (err) {
     console.error('Error fetching leaderboard:', err);
     return res.status(500).json({ error: err.message || 'Database query error' });

@@ -141,14 +141,16 @@ export const OffseasonOverlayPanel: React.FC<OffseasonOverlayPanelProps> = ({ on
   const [userCurrentRank, setUserCurrentRank] = useState<number | null>(null);
   const [inputName, setInputName] = useState('');
   const [copied, setCopied] = useState(false);
+  const [showPassDetails, setShowPassDetails] = useState(false);
   const [searchCodeInput, setSearchCodeInput] = useState('');
   const [searchResult, setSearchResult] = useState<{ rank: number; count: number; code: string; name: string } | null>(null);
   const [searchNotFound, setSearchNotFound] = useState(false);
   const [showRestoreInput, setShowRestoreInput] = useState(false);
   const [restoreCodeInput, setRestoreCodeInput] = useState('');
 
-  // 数据库排行榜
+  // 数据库排行榜与全网实时打卡能量
   const [leaderboard, setLeaderboard] = useState<DbCheckInUser[]>([]);
+  const [communityTotalCheckIns, setCommunityTotalCheckIns] = useState<number>(18);
   const [loadingLeaderboard, setLoadingLeaderboard] = useState(true);
 
   // 查验真实时间日志弹窗
@@ -169,7 +171,8 @@ export const OffseasonOverlayPanel: React.FC<OffseasonOverlayPanelProps> = ({ on
   const loadLeaderboard = async () => {
     setLoadingLeaderboard(true);
     const data = await getLeaderboardFromNeon();
-    setLeaderboard(data);
+    setLeaderboard(data.users);
+    setCommunityTotalCheckIns(data.totalCheckIns);
     setLoadingLeaderboard(false);
   };
 
@@ -181,8 +184,15 @@ export const OffseasonOverlayPanel: React.FC<OffseasonOverlayPanelProps> = ({ on
         const parsed = JSON.parse(saved);
         setUserCheckIn(parsed);
         queryUserRankFromNeon(parsed.userCode).then(async (res) => {
-          if (res) {
+          if (res && res.user) {
             setUserCurrentRank(res.rank);
+            // 与数据库同步最新打卡天数与时间（例如 lisa_FJK3 的 3 天）
+            setUserCheckIn(prev => prev ? {
+              ...prev,
+              userName: res.user!.user_name,
+              checkInCount: res.user!.checkin_count,
+              lastCheckInTimestamp: new Date(res.user!.last_checkin_at).getTime()
+            } : prev);
           } else if (parsed.userCode && parsed.userName) {
             // 自动同步自愈：如果本地已打卡但数据库暂无记录，静默补登入库
             const vCode = parsed.verifyCode || parsed.userCode.split('_')[1] || 'FANS';
@@ -197,6 +207,11 @@ export const OffseasonOverlayPanel: React.FC<OffseasonOverlayPanelProps> = ({ on
       } catch (e) {
         // ignore
       }
+    } else {
+      // 预先随机一个好看的球迷昵称，方便直接 1 键打卡
+      const base = RANDOM_FAN_HANDLES[Math.floor(Math.random() * RANDOM_FAN_HANDLES.length)];
+      const num = Math.floor(10 + Math.random() * 90);
+      setInputName(`${base}_${num}`);
     }
   }, []);
 
@@ -209,8 +224,10 @@ export const OffseasonOverlayPanel: React.FC<OffseasonOverlayPanelProps> = ({ on
     return result;
   };
 
-  const handleCheckInSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
+  const handleCheckInSubmit = async (e?: React.FormEvent) => {
+    if (e?.preventDefault) {
+      e.preventDefault();
+    }
     let name = userCheckIn ? userCheckIn.userName : inputName.trim();
     if (!name) {
       name = 'FeverFan' + Math.floor(100 + Math.random() * 900);
@@ -231,6 +248,7 @@ export const OffseasonOverlayPanel: React.FC<OffseasonOverlayPanelProps> = ({ on
       setUserCheckIn(updated);
       localStorage.setItem('fever_user_checkin', JSON.stringify(updated));
       setInputName('');
+      setCommunityTotalCheckIns(prev => prev + 1);
       loadLeaderboard();
 
       queryUserRankFromNeon(updated.userCode).then(rankRes => {
@@ -306,12 +324,19 @@ export const OffseasonOverlayPanel: React.FC<OffseasonOverlayPanelProps> = ({ on
     setLoadingLogs(false);
   };
 
-  const isCheckedToday = Boolean(
-    userCheckIn && (Date.now() - userCheckIn.lastCheckInTimestamp) < 24 * 60 * 60 * 1000
-  );
+  const isCheckedToday = useMemo(() => {
+    if (!userCheckIn || !userCheckIn.lastCheckInTimestamp) return false;
+    const lastDate = new Date(userCheckIn.lastCheckInTimestamp).toDateString();
+    const todayDate = new Date().toDateString();
+    const hoursPassed = (Date.now() - userCheckIn.lastCheckInTimestamp) / (1000 * 3600);
+    return lastDate === todayDate && hoursPassed < 16;
+  }, [userCheckIn]);
 
+  const BASE_LAUNCH_HEAT = 590;
   const activeMilestone = launchProgress[sliderIndex] || launchProgress[launchProgress.length - 1];
-  const activeCount = activeMilestone.totalCheckIns + (userCheckIn ? userCheckIn.checkInCount : 0);
+  const activeCount = sliderIndex === launchProgress.length - 1
+    ? BASE_LAUNCH_HEAT + communityTotalCheckIns
+    : activeMilestone.totalCheckIns;
 
   const getFlameStyle = (count: number) => {
     if (count > 550) {
@@ -571,7 +596,7 @@ export const OffseasonOverlayPanel: React.FC<OffseasonOverlayPanelProps> = ({ on
                 />
                 <div className="flex justify-between text-[9px] text-gray-500 mt-0.5">
                   <span>00:00 Launch</span>
-                  <span className="text-amber-400 font-bold">Now (Active)</span>
+                  <span className="text-amber-400 font-bold">Now: {BASE_LAUNCH_HEAT + communityTotalCheckIns} (Active)</span>
                 </div>
               </div>
             </div>
@@ -579,86 +604,135 @@ export const OffseasonOverlayPanel: React.FC<OffseasonOverlayPanelProps> = ({ on
             {/* 打卡表单与个人名次 */}
             <div className="bg-white/5 rounded-2xl p-4 border border-white/10">
               {!userCheckIn ? (
-                <form onSubmit={handleCheckInSubmit} className="space-y-2.5">
-                  <div>
-                    <div className="flex items-center justify-between mb-1">
-                      <label className="block text-[11px] font-bold text-gray-300">
-                        Pick Your Fan Handle (Instant Join):
-                      </label>
-                      <button
-                        type="button"
-                        onClick={handleGenerateRandomName}
-                        className="text-[10px] text-amber-300 hover:text-amber-200 flex items-center gap-1 font-bold bg-white/10 hover:bg-white/20 px-2 py-0.5 rounded transition-all active:scale-95"
-                        title="Generate random basketball fan handle"
-                      >
-                        <Shuffle className="h-3 w-3" />
-                        <span>🎲 Random</span>
-                      </button>
-                    </div>
-                    <div className="flex gap-2">
-                      <input
-                        type="text"
-                        required
-                        maxLength={16}
-                        placeholder="e.g. CaitlinFan22"
-                        value={inputName}
-                        onChange={(e) => setInputName(e.target.value)}
-                        className="flex-1 bg-gray-900 border border-gray-700 focus:border-amber-400 rounded-xl px-3 py-2 text-xs text-white placeholder-gray-500 focus:outline-none transition-all font-mono"
-                      />
-                      <button
-                        type="button"
-                        onClick={handleGenerateRandomName}
-                        className="bg-amber-400/20 hover:bg-amber-400/30 text-amber-300 px-3 py-2 rounded-xl text-xs font-bold border border-amber-400/30 flex items-center gap-1 shrink-0 active:scale-95 transition-all"
-                        title="Generate random handle"
-                      >
-                        <span>🎲</span>
-                        <span className="hidden sm:inline">Random</span>
-                      </button>
-                    </div>
-                  </div>
-                  <button
-                    type="submit"
-                    className="w-full bg-gradient-to-r from-amber-400 via-orange-500 to-red-600 hover:from-amber-300 hover:to-red-500 text-black font-black py-2.5 px-4 rounded-xl shadow-lg active:scale-95 transition-all flex items-center justify-center gap-2 text-xs"
-                  >
-                    <Award className="h-4 w-4" />
-                    <span>{seasonStage === 'playoffs' ? 'Check In & Fuel Playoff Heat' : 'Check In & Fuel Heat Sphere'}</span>
-                  </button>
-                </form>
-              ) : (
-                <div className="space-y-2">
-                  <div className="flex items-center justify-between">
-                    <div>
-                      <span className="text-[10px] text-gray-400 block">Fan Handle:</span>
-                      <span className="font-black text-sm text-amber-300">{userCheckIn.userName}</span>
-                    </div>
+                <div className="space-y-3">
+                  <div className="flex items-center justify-between mb-1">
+                    <label className="block text-[11px] font-bold text-gray-300">
+                      🏀 Join Fever Fan Community (1-Click):
+                    </label>
                     <button
-                      onClick={handleCheckInSubmit}
-                      disabled={isCheckedToday}
-                      className={`text-xs font-bold px-3 py-1.5 rounded-lg transition-all flex items-center gap-1 ${
-                        isCheckedToday
-                          ? 'bg-gray-800 text-gray-400 cursor-not-allowed'
-                          : 'bg-gradient-to-r from-amber-400 to-orange-400 text-black hover:scale-105 active:scale-95'
-                      }`}
+                      type="button"
+                      onClick={handleGenerateRandomName}
+                      className="text-[10px] text-amber-300 hover:text-amber-200 flex items-center gap-1 font-bold bg-white/10 hover:bg-white/20 px-2 py-0.5 rounded transition-all active:scale-95"
+                      title="Shuffle random handle"
                     >
-                      <UserCheck className="h-3.5 w-3.5" />
-                      <span>{isCheckedToday ? 'Checked in Today (Day 1)' : 'Daily Check-In +1'}</span>
+                      <Shuffle className="h-3 w-3" />
+                      <span>🎲 Shuffle</span>
                     </button>
                   </div>
 
-                  <div className="bg-black/50 p-2 rounded-lg border border-white/10 flex items-center justify-between text-xs">
-                    <div className="truncate mr-2">
-                      <span className="text-[9px] text-gray-400 block">Your Fan Pass (Save code to restore streak on any device):</span>
-                      <code className="text-xs font-mono font-bold text-amber-300 truncate block">
-                        {userCheckIn.userCode}
-                      </code>
-                    </div>
+                  <div className="flex gap-2">
+                    <input
+                      type="text"
+                      maxLength={16}
+                      placeholder="e.g. lisa or CaitlinFan22"
+                      value={inputName}
+                      onChange={(e) => setInputName(e.target.value)}
+                      className="flex-1 bg-gray-900 border border-gray-700 focus:border-amber-400 rounded-xl px-3 py-2.5 text-xs text-white placeholder-gray-500 focus:outline-none transition-all font-mono"
+                    />
                     <button
-                      onClick={handleCopy}
-                      className="shrink-0 px-2 py-1 bg-white/10 hover:bg-white/20 text-gray-200 rounded text-[10px] font-bold flex items-center gap-1"
+                      type="button"
+                      onClick={() => handleCheckInSubmit()}
+                      className="bg-gradient-to-r from-amber-400 via-orange-500 to-red-600 hover:from-amber-300 hover:to-red-500 text-black font-black py-2.5 px-5 rounded-xl shadow-lg active:scale-95 transition-all flex items-center gap-1.5 text-xs whitespace-nowrap"
                     >
-                      <Copy className="h-3 w-3" />
-                      <span>{copied ? 'Copied' : 'Copy'}</span>
+                      <Award className="h-4 w-4" />
+                      <span>⚡ 1-Click Check In</span>
                     </button>
+                  </div>
+
+                  <div className="pt-2 border-t border-white/10 flex items-center justify-between text-[11px] text-gray-400">
+                    <span>Already checked in on another device?</span>
+                    <button
+                      type="button"
+                      onClick={() => setShowRestoreInput(true)}
+                      className="text-amber-300 hover:underline font-bold"
+                    >
+                      Restore Fan Pass ▸
+                    </button>
+                  </div>
+                </div>
+              ) : (
+                <div className="space-y-3">
+                  <div className="flex items-center justify-between bg-white/5 p-3 rounded-xl border border-white/10">
+                    <div>
+                      <span className="text-[10px] text-gray-400 block font-semibold">Fan Identity:</span>
+                      <span className="font-black text-sm sm:text-base text-amber-300 flex items-center gap-1.5">
+                        <span>{userCheckIn.userName}</span>
+                        {userCurrentRank && (
+                          <span className="text-[10px] bg-amber-400 text-black font-black px-1.5 py-0.5 rounded-full">
+                            Rank #{userCurrentRank}
+                          </span>
+                        )}
+                      </span>
+                    </div>
+
+                    <div className="text-right">
+                      <span className="text-[10px] text-gray-400 block font-semibold">Active Streak:</span>
+                      <span className="font-black text-sm sm:text-base text-white">
+                        🔥 {userCheckIn.checkInCount} {userCheckIn.checkInCount === 1 ? 'Day' : 'Days'}
+                      </span>
+                    </div>
+                  </div>
+
+                  {/* 直接一键打卡按钮：无需重新输入名字或随机码 */}
+                  <button
+                    onClick={() => handleCheckInSubmit()}
+                    disabled={isCheckedToday}
+                    className={`w-full py-3 px-4 rounded-xl font-black text-xs sm:text-sm flex items-center justify-center gap-2 shadow-lg transition-all ${
+                      isCheckedToday
+                        ? 'bg-gray-800/90 text-gray-300 cursor-not-allowed border border-gray-700'
+                        : 'bg-gradient-to-r from-amber-400 via-orange-500 to-red-600 hover:from-amber-300 hover:to-red-500 text-black shadow-orange-500/30 active:scale-95'
+                    }`}
+                  >
+                    {isCheckedToday ? (
+                      <>
+                        <CheckCircle2 className="h-4 w-4 text-emerald-400" />
+                        <span>Checked in Today ({userCheckIn.checkInCount} Days Streak) · Streak Protected</span>
+                      </>
+                    ) : (
+                      <>
+                        <Award className="h-4 w-4" />
+                        <span>⚡ 1-Click Daily Check-In (+1 Streak)</span>
+                      </>
+                    )}
+                  </button>
+
+                  {/* 仅在换设备或查排名时展开唯一编码 */}
+                  <div className="pt-1 text-center">
+                    {!showPassDetails ? (
+                      <button
+                        type="button"
+                        onClick={() => setShowPassDetails(true)}
+                        className="text-[10px] text-gray-400 hover:text-amber-300 underline transition-colors"
+                      >
+                        📱 Switching devices or verifying rank? View your Fan Pass Code ▸
+                      </button>
+                    ) : (
+                      <div className="bg-black/60 p-2.5 rounded-xl border border-amber-400/20 text-xs animate-in fade-in">
+                        <div className="flex items-center justify-between mb-1">
+                          <span className="text-[9px] text-gray-400">Unique Fan Pass Code (for restore on new device & rank search):</span>
+                          <button
+                            type="button"
+                            onClick={() => setShowPassDetails(false)}
+                            className="text-[10px] text-gray-400 hover:text-white"
+                          >
+                            ✕ Hide
+                          </button>
+                        </div>
+                        <div className="flex items-center justify-between gap-2">
+                          <code className="text-xs font-mono font-bold text-amber-300 truncate">
+                            {userCheckIn.userCode}
+                          </code>
+                          <button
+                            type="button"
+                            onClick={handleCopy}
+                            className="px-2 py-1 bg-amber-400/20 hover:bg-amber-400/30 text-amber-300 border border-amber-400/30 rounded text-[10px] font-bold shrink-0 flex items-center gap-1 active:scale-95 transition-all"
+                          >
+                            <Copy className="h-3 w-3" />
+                            <span>{copied ? 'Copied!' : 'Copy'}</span>
+                          </button>
+                        </div>
+                      </div>
+                    )}
                   </div>
                 </div>
               )}

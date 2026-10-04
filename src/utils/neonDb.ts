@@ -41,17 +41,30 @@ const SEED_LEADERBOARD: DbCheckInUser[] = [
   { id: 10, user_name: 'IndianapolisFast', verify_code: '88V0', user_code: 'IndianapolisFast_88V0', checkin_count: 1, rank_override: 10, badge: '⚡ Fast Break Club', last_checkin_at: '2026-10-01 08:00:00Z' },
 ];
 
-export async function getLeaderboardFromNeon(): Promise<DbCheckInUser[]> {
+export interface LeaderboardResult {
+  users: DbCheckInUser[];
+  totalCheckIns: number;
+  totalUsers: number;
+}
+
+export async function getLeaderboardFromNeon(): Promise<LeaderboardResult> {
   try {
     const res = await fetch('/api/leaderboard');
     if (!res.ok) {
-      return SEED_LEADERBOARD;
+      return { users: SEED_LEADERBOARD, totalCheckIns: 18, totalUsers: 14 };
     }
     const data = await res.json();
-    return Array.isArray(data) && data.length > 0 ? data : SEED_LEADERBOARD;
+    if (Array.isArray(data)) {
+      return { users: data, totalCheckIns: data.length, totalUsers: data.length };
+    }
+    return {
+      users: Array.isArray(data.users) && data.users.length > 0 ? data.users : SEED_LEADERBOARD,
+      totalCheckIns: Number(data.totalCheckIns) || 18,
+      totalUsers: Number(data.totalUsers) || 14
+    };
   } catch (err) {
     console.warn('API /api/leaderboard offline, using fallback list');
-    return SEED_LEADERBOARD;
+    return { users: SEED_LEADERBOARD, totalCheckIns: 18, totalUsers: 14 };
   }
 }
 
