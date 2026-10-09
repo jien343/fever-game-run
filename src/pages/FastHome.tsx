@@ -32,7 +32,7 @@ const MobileHero = React.memo(() => (
   <div className="bg-gradient-to-br from-black via-red-950 to-black text-white py-6 px-5">
     <div className="text-center">
       <h1 className="text-xl font-black text-white leading-tight mb-1">
-        Indiana Fever Game Today
+        Indiana Fever Game Tonight & Today
       </h1>
       <p className="text-sm text-yellow-200/80 font-semibold mb-5">
         Live Scores · Stats · Highlights
@@ -65,7 +65,7 @@ const DesktopHero = React.memo(() => (
         <div className="flex items-center justify-center mb-6">
           <Flame className="h-12 w-12 text-yellow-300 mr-4 animate-pulse" />
           <h1 className="text-5xl md:text-7xl font-black text-white">
-            Indiana Fever Game Today
+            Indiana Fever Game Tonight & Today
           </h1>
           <Flame className="h-12 w-12 text-yellow-300 ml-4 animate-pulse" />
         </div>
@@ -163,8 +163,18 @@ const FastHome = () => {
   if (loading) {
     return (
       <div className="min-h-screen bg-gradient-to-br from-orange-50 via-red-50 to-yellow-50">
-        {/* Hero skeleton — same height as MobileHero / DesktopHero */}
-        <div className="bg-gradient-to-r from-red-900 to-black" style={{ minHeight: isMobile ? '180px' : '280px' }}></div>
+        <Helmet>
+          <title>Indiana Fever Game Tonight & Today: Live Score, Stats & Schedule</title>
+          <meta name="description" content="Check the Indiana Fever game tonight and today score live! Real-time WNBA scores, Caitlin Clark stats, full box score, and watch game stream updates." />
+          <meta name="keywords" content="indiana fever game tonight, fever game today, indiana fever game today, fever score tonight, fever game today score, fevergame, indiana fever game today score, fever game tonight score, score of fever game today" />
+          <link rel="canonical" href="https://fevergame.space/" />
+        </Helmet>
+        {/* Hero skeleton — semantic H1 ensures crawlers always see the primary heading */}
+        <div className="bg-gradient-to-r from-red-900 to-black flex items-center justify-center text-center px-4" style={{ minHeight: isMobile ? '180px' : '280px' }}>
+          <h1 className="text-xl md:text-5xl font-black text-white/30 tracking-tight select-none">
+            Indiana Fever Game Tonight & Today
+          </h1>
+        </div>
         <div className="max-w-7xl mx-auto px-4 py-6">
           {/* Live banner skeleton */}
           <div className="bg-blue-500/30 rounded-xl h-12 md:h-[72px] mb-6 animate-pulse"></div>
@@ -192,6 +202,12 @@ const FastHome = () => {
 
   return (
     <PerformanceOptimizer>
+      <Helmet>
+        <title>Indiana Fever Game Tonight & Today: Live Score, Stats & Schedule</title>
+        <meta name="description" content="Check the Indiana Fever game tonight and today score live! Real-time WNBA scores, Caitlin Clark stats, full box score, and watch game stream updates." />
+        <meta name="keywords" content="indiana fever game tonight, fever game today, indiana fever game today, fever score tonight, fever game today score, fevergame, indiana fever game today score, fever game tonight score, score of fever game today" />
+        <link rel="canonical" href="https://fevergame.space/" />
+      </Helmet>
       <div className="min-h-screen bg-gradient-to-br from-orange-50 via-red-50 to-yellow-50">
         {/* 响应式 Hero Section */}
         {isMobile ? <MobileHero /> : <DesktopHero />}
@@ -545,8 +561,8 @@ const FastHome = () => {
             <h2 className="text-xl md:text-2xl font-bold text-gray-800 mb-4">Explore More</h2>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
               <Link to="/guides/how-to-watch-fever" className="bg-white rounded-xl shadow-md p-5 hover:shadow-lg transition-shadow border border-gray-100">
-                <h3 className="font-bold text-gray-900 mb-2">How to Watch Indiana Fever Games</h3>
-                <p className="text-sm text-gray-600">Complete streaming and TV guide for all Fever games, including free options and Prime Video.</p>
+                <h3 className="font-bold text-gray-900 mb-2">How to Watch Fever Games Live</h3>
+                <p className="text-sm text-gray-600">Complete streaming guide: live channel links, free broadcast options, and how to bypass regional blackouts.</p>
               </Link>
               <Link to="/guides/caitlin-clark-impact" className="bg-white rounded-xl shadow-md p-5 hover:shadow-lg transition-shadow border border-gray-100">
                 <h3 className="font-bold text-gray-900 mb-2">Caitlin Clark's Impact — A Statistical Analysis</h3>

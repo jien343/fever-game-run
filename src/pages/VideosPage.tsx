@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { Helmet } from 'react-helmet-async';
 import { Video, Search, Filter, RefreshCw } from 'lucide-react';
 import VideoCard from '../components/VideoCard';
 import BookmarkButton from '../components/BookmarkButton';
@@ -139,6 +140,11 @@ const VideosPage = () => {
 
   return (
     <div className="min-h-screen bg-gray-50">
+      <Helmet>
+        <title>Indiana Fever & Caitlin Clark Video Highlights</title>
+        <meta name="description" content="Watch curated Indiana Fever video highlights, Caitlin Clark logo 3-pointers, pinpoint assists, and game-winning plays from tonight and today games." />
+        <link rel="canonical" href="https://fevergame.space/videos" />
+      </Helmet>
       {/* Header */}
       <div className="bg-white shadow-sm border-b">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">

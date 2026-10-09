@@ -1,9 +1,15 @@
 import React from 'react';
+import { Helmet } from 'react-helmet-async';
 import { Shield, Eye, Cookie, Lock, Mail, Calendar } from 'lucide-react';
 
 const PrivacyPolicy = () => {
   return (
     <div className="min-h-screen bg-gray-50">
+      <Helmet>
+        <title>Privacy Policy | Fever Game Today</title>
+        <meta name="description" content="Read the Fever Game Today privacy policy. Learn how we respect your privacy, ensure user security, and handle data on our WNBA live score platform." />
+        <link rel="canonical" href="https://fevergame.space/privacy" />
+      </Helmet>
       {/* Header */}
       <div className="bg-gradient-to-r from-slate-900 to-slate-800 text-white">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12">

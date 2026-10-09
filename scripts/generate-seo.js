@@ -9,17 +9,17 @@ const __dirname = path.dirname(__filename);
 const routes = [
   {
     path: '/',
-    title: 'Indiana Fever Score Today | Fever Game Live Scores & Stats',
-    description: 'Check the live Indiana Fever game score today! Real-time WNBA scores, Caitlin Clark stats, full box score, and watch Fever games live. Updated 24/7.',
-    h1: 'Indiana Fever Score Today & Live Game Updates',
+    title: 'Indiana Fever Game Tonight & Today: Live Score, Stats & Schedule',
+    description: 'Check the Indiana Fever game tonight and today score live! Real-time WNBA scores, Caitlin Clark stats, full box score, and watch game stream updates.',
+    h1: 'Indiana Fever Game Tonight & Today: Live Score & Caitlin Clark Stats',
     sections: [
       {
-        h2: 'Indiana Fever Game Today: Live Score & Play-by-Play Updates',
-        content: `Welcome to the premier fan destination for checking the official Indiana Fever score today. As Caitlin Clark, Aliyah Boston, and Kelsey Mitchell electrify Gainbridge Fieldhouse, our real-time basketball tracker keeps you updated with instant fever score alerts, period scoring runs, shooting splits, and live game updates. Whether you are following an afternoon matinee or tracking the final score of tonight's Indiana Fever game today, our scoreboard delivers accurate play-by-play coverage every 30 seconds.`
+        h2: 'Indiana Fever Game Tonight & Today: Live Score & Play-by-Play Updates',
+        content: `Welcome to the premier fan destination for checking the official Indiana Fever game tonight and today score. As Caitlin Clark, Aliyah Boston, and Kelsey Mitchell electrify Gainbridge Fieldhouse, our real-time basketball tracker keeps you updated with instant fever score tonight alerts, period scoring runs, shooting splits, and live game updates. Whether you are tracking an afternoon tip-off or searching for the fever game tonight score, our scoreboard delivers accurate play-by-play coverage every 30 seconds.`
       },
       {
         h2: 'Fever Live Scores, Box Scores & Final Results',
-        content: `Every matchup on the Indiana Fever schedule receives comprehensive statistical coverage. Access detailed box score breakdowns including total points scored, field goals made, three-point shooting efficiency, rebounds, and team assists leading directly to scores. Follow every fever game today live score from the opening jump ball through overtime, with quarter-by-quarter scoring analysis, bench scoring contributions, and head-to-head score comparison against top WNBA contenders. If you need live stats wnba fever game coverage, our interactive platform delivers complete player performance metrics.`,
+        content: `Every matchup on the Indiana Fever schedule receives comprehensive statistical coverage. Access detailed box score breakdowns including total points scored, field goals made, three-point shooting efficiency, rebounds, and team assists leading directly to scores. Follow every fever game today score from the opening jump ball through overtime, with quarter-by-quarter scoring analysis, bench scoring contributions, and head-to-head score comparison against top WNBA contenders. If you need live stats wnba fever game coverage, our interactive platform delivers complete player performance metrics.`,
         table: {
           headers: ['Matchup', 'Status', 'Q1', 'Q2', 'Q3', 'Q4', 'Final Score'],
           rows: [
@@ -42,15 +42,19 @@ const routes = [
         h2: 'Frequently Asked Questions: Indiana Fever Scores & Live Coverage',
         faqs: [
           {
-            q: 'What is the Indiana Fever score today?',
-            a: 'Check our live scoreboard above for the official Indiana Fever score today, updated continuously with live quarter scores, player box scores, and final score summaries.'
+            q: 'Is the Indiana Fever game on tonight?',
+            a: 'Check our live schedule and countdown above for the exact tip-off time, opponent, and broadcast channel for the Indiana Fever game tonight.'
+          },
+          {
+            q: 'What is the Indiana Fever game score tonight?',
+            a: 'Check our live scoreboard above for the official Indiana Fever score tonight, updated continuously with live quarter scores, player box scores, and final score summaries.'
           },
           {
             q: 'Where can I find the complete box score for the Fever game?',
             a: 'Our platform provides full box score statistics for every Indiana Fever matchup, including field goals, three-pointers, rebounds, assists, and individual player scoring totals.'
           },
           {
-            q: 'How can I watch the Indiana Fever game live today?',
+            q: 'How can I watch the Indiana Fever game live today and tonight?',
             a: 'Indiana Fever games are broadcast nationally on ESPN, ABC, Prime Video, and free over-the-air on ION Television. Check our TV schedule guide for live broadcast and streaming channels.'
           },
           {
@@ -80,7 +84,7 @@ const routes = [
   {
     path: '/news',
     title: 'Indiana Fever News & Caitlin Clark Updates',
-    description: 'Latest news, highlights, and tactical breakdowns for the Indiana Fever and Caitlin Clark.',
+    description: 'Stay updated with the latest Indiana Fever news, post-game score recaps, injury reports, and tactical Caitlin Clark breakdowns for tonight and today matchups.',
     h1: 'Indiana Fever Latest News, Score Recaps & Tactical Analysis',
     sections: [
       {
@@ -96,7 +100,7 @@ const routes = [
   {
     path: '/videos',
     title: 'Indiana Fever & Caitlin Clark Video Highlights',
-    description: 'Watch the best video highlights, deep threes, and assists from Caitlin Clark and the Indiana Fever.',
+    description: 'Watch curated Indiana Fever video highlights, Caitlin Clark logo 3-pointers, pinpoint assists, and game-winning plays from tonight and today games.',
     h1: 'Caitlin Clark & Indiana Fever Video Highlights',
     sections: [
       {
@@ -108,7 +112,7 @@ const routes = [
   {
     path: '/player/caitlin-clark',
     title: 'Caitlin Clark Stats, Bio & Impact - Indiana Fever',
-    description: 'Comprehensive statistics, biography, and analysis of Caitlin Clark\'s impact on the Indiana Fever and the WNBA.',
+    description: 'Comprehensive statistics, biography, and analysis of Caitlin Clark impact on the Indiana Fever scoring offense and WNBA records.',
     h1: 'Caitlin Clark: Player Profile, Scoring Records & Career Statistics',
     sections: [
       {
@@ -123,20 +127,20 @@ const routes = [
   },
   {
     path: '/guides/how-to-watch-fever',
-    title: 'How to Watch Indiana Fever Games - Free & TV Guide',
-    description: 'Complete guide on how to stream and watch Indiana Fever games live. Coverage includes Prime Video, ION TV, ESPN, and regional sports networks.',
+    title: 'How to Watch Indiana Fever Games - Live Stream & Blackout Guide',
+    description: 'Complete guide on how to stream and watch Indiana Fever games live. Covers WNBA League Pass, ESPN, ION TV, Prime Video, and how to bypass regional blackouts.',
     h1: 'How to Watch Indiana Fever Games Live: Streaming & TV Guide',
     sections: [
       {
         h2: 'Free and Paid Broadcast Options for Indiana Fever Fans',
-        content: `Complete guide explaining how to watch every Indiana Fever game for free over-the-air via ION TV, or through streaming providers like Amazon Prime Video and WNBA League Pass.`
+        content: `Complete guide explaining how to watch every Indiana Fever game live or for free over-the-air via ION TV, ESPN, Prime Video, and WNBA League Pass, including live blackout workaround tips.`
       }
     ]
   },
   {
     path: '/guides/caitlin-clark-impact',
     title: 'Caitlin Clark\'s Impact on the Indiana Fever & WNBA',
-    description: 'Analyzing the Caitlin Clark effect: how her arrival transformed the Indiana Fever\'s viewership, ticket sales, and team dynamics.',
+    description: 'Analyzing the Caitlin Clark effect: how her arrival transformed the Indiana Fever scoring records, television viewership, and team dynamics.',
     h1: 'The Caitlin Clark Effect: Analyzing Her WNBA Scoring & Cultural Impact',
     sections: [
       {
@@ -148,7 +152,7 @@ const routes = [
   {
     path: '/guides/fever-season-preview',
     title: 'Indiana Fever 2026 Season Preview & Predictions',
-    description: 'Detailed preview of the 2026 Indiana Fever season, including roster analysis, key matchups, and playoff predictions.',
+    description: 'Detailed preview of the 2026 Indiana Fever season, including complete roster analysis, key schedule matchups, scoring projections, and playoff predictions.',
     h1: 'Indiana Fever 2026 Season Preview & Score Projections',
     sections: [
       {
@@ -166,6 +170,70 @@ const routes = [
       {
         h2: '2026 WNBA Playoff Bracket, Seeding & Game Scores',
         content: `Complete playoff coverage tracking the Indiana Fever championship pursuit with live game scores, series standings, and broadcast channels.`
+      }
+    ]
+  },
+  {
+    path: '/about',
+    title: 'About Us - Fever Game Today | Indiana Fever Fan Community',
+    description: 'Discover the mission of Fever Game Today. We provide passionate fans with real-time Indiana Fever scores, Caitlin Clark stats, highlights, and WNBA coverage.',
+    h1: 'About Fever Game Today: Dedicated Indiana Fever Coverage',
+    sections: [
+      {
+        h2: 'Our Mission for Indiana Fever & WNBA Fans',
+        content: `Fever Game Today is an independent fan-driven platform dedicated to providing the most reliable, up-to-the-minute coverage of the Indiana Fever and WNBA basketball. From real-time live score updates to in-depth player statistics and highlights, we bring the excitement of Gainbridge Fieldhouse directly to fans worldwide.`
+      },
+      {
+        h2: 'Comprehensive Basketball Analytics',
+        content: `We combine live scoreboards, advanced player metrics, and curated video analysis to help fans stay connected with Caitlin Clark and the Fever throughout the regular season and WNBA playoffs.`
+      }
+    ]
+  },
+  {
+    path: '/contact',
+    title: 'Contact Us | Fever Game Today Support & Inquiries',
+    description: 'Get in touch with the Fever Game Today team for inquiries, feedback, score correction requests, or support regarding our WNBA basketball coverage.',
+    h1: 'Contact the Fever Game Today Editorial & Tech Team',
+    sections: [
+      {
+        h2: 'Get in Touch With Our Team',
+        content: `Have questions, suggestions, or feedback about our live scores and Indiana Fever game coverage? Reach out to our editorial and development team. We welcome fan community feedback, partnership inquiries, and feature suggestions.`
+      },
+      {
+        h2: 'Feedback & Corrections',
+        content: `Our goal is 100% accuracy in our live score reporting and statistical archives. If you notice any scoring discrepancies or technical issues, please let us know immediately.`
+      }
+    ]
+  },
+  {
+    path: '/privacy',
+    title: 'Privacy Policy | Fever Game Today',
+    description: 'Read the Fever Game Today privacy policy. Learn how we respect your privacy, ensure user security, and handle data on our WNBA live score platform.',
+    h1: 'Privacy Policy - Fever Game Today Data Practices',
+    sections: [
+      {
+        h2: 'Information Collection and Usage',
+        content: `At Fever Game Today, we respect your privacy and are committed to transparency. We do not collect personally identifiable information from regular visitors. Our website serves real-time basketball scores, game schedules, and video highlights without requiring invasive user tracking.`
+      },
+      {
+        h2: 'Third-Party Services & Analytics',
+        content: `We may utilize industry-standard analytics tools to monitor website performance and improve user experience. These tools collect anonymized usage data in accordance with applicable data protection regulations.`
+      }
+    ]
+  },
+  {
+    path: '/terms',
+    title: 'Terms of Service | Fever Game Today',
+    description: 'Review the terms of service, guidelines, and user agreement for Fever Game Today. Understand our WNBA score tracking and video highlight policies.',
+    h1: 'Terms of Service & Usage Guidelines - Fever Game Today',
+    sections: [
+      {
+        h2: 'Agreement to Terms & Independent Disclaimer',
+        content: `By accessing Fever Game Today, you agree to our Terms of Service. Fever Game Today is an independent sports information and fan platform. We provide curated statistics, game schedules, and third-party video embeds for informational and entertainment purposes.`
+      },
+      {
+        h2: 'Intellectual Property & Fair Use',
+        content: `All team names, logos, and trademarks belong to their respective owners. Fever Game Today operates as an independent fan resource and is not officially affiliated with the WNBA or the Indiana Fever franchise.`
       }
     ]
   }
@@ -275,15 +343,24 @@ try {
           <a href="/videos" style="color:#b91c1c;text-decoration:underline;">Highlights</a>
           <a href="/player/caitlin-clark" style="color:#b91c1c;text-decoration:underline;">Caitlin Clark Stats</a>
           <a href="/guides/how-to-watch-fever" style="color:#b91c1c;text-decoration:underline;">How to Watch Live</a>
+          <a href="/about" style="color:#b91c1c;text-decoration:underline;">About Us</a>
+          <a href="/contact" style="color:#b91c1c;text-decoration:underline;">Contact</a>
+          <a href="/privacy" style="color:#b91c1c;text-decoration:underline;">Privacy Policy</a>
+          <a href="/terms" style="color:#b91c1c;text-decoration:underline;">Terms</a>
         </div>
       </footer>
     </div>`;
 
-    // 1. Inject directly into <div id="root"> so AI Crawlers & SSR audits see full words & H2 tags!
-    newHtml = newHtml.replace('<div id="root"></div>', `<div id="root">${serverRenderedBody}</div>`);
+    // 1. Inject directly into <div id="root">
+    if (newHtml.includes('<div id="root"></div>')) {
+      newHtml = newHtml.replace('<div id="root"></div>', `<div id="root">${serverRenderedBody}</div>`);
+    } else {
+      // Replace existing content inside root container
+      newHtml = newHtml.replace(/<div id="root">[\s\S]*?<\/div>\s*<\/div>/, `<div id="root">${serverRenderedBody}</div>`);
+    }
 
-    // 2. Also keep <noscript> for crawlers that look specifically for fallback text
-    const noscriptContent = `<noscript>${serverRenderedBody}</noscript>`;
+    // 2. Noscript fallback: keep clean, don't duplicate H1 to avoid multiple H1 warnings
+    const noscriptContent = `<noscript><div style="padding:20px;text-align:center;font-family:system-ui,sans-serif;"><p style="font-size:1.2rem;font-weight:bold;color:#111827;">Welcome to Fever Game Today</p><p style="color:#4b5563;">${route.description}</p></div></noscript>`;
     if (newHtml.includes('<noscript>')) {
       newHtml = newHtml.replace(/<noscript>[\s\S]*?<\/noscript>/, noscriptContent);
     } else {

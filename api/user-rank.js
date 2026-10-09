@@ -31,7 +31,15 @@ export default async function handler(req, res) {
       SELECT COUNT(*) as higher_count 
       FROM fever_checkins 
       WHERE checkin_count > ${user.checkin_count}
-         OR (checkin_count = ${user.checkin_count} AND id < ${user.id});
+         OR (
+           checkin_count = ${user.checkin_count} 
+           AND COALESCE(last_checkin_at, created_at, '1970-01-01'::timestamp) > COALESCE(${user.last_checkin_at}, ${user.created_at}, '1970-01-01'::timestamp)
+         )
+         OR (
+           checkin_count = ${user.checkin_count} 
+           AND COALESCE(last_checkin_at, created_at, '1970-01-01'::timestamp) = COALESCE(${user.last_checkin_at}, ${user.created_at}, '1970-01-01'::timestamp)
+           AND id > ${user.id}
+         );
     `;
     const rank = Number(rankCount[0].higher_count) + 1;
 

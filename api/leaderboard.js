@@ -17,7 +17,8 @@ export default async function handler(req, res) {
       FROM fever_checkins
       ORDER BY 
         checkin_count DESC,
-        id ASC
+        COALESCE(last_checkin_at, created_at, '1970-01-01'::timestamp) DESC,
+        id DESC
       LIMIT 20;
     `;
 

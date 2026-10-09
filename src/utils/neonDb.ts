@@ -47,24 +47,46 @@ export interface LeaderboardResult {
   totalUsers: number;
 }
 
+export function sortLeaderboardUsers(users: DbCheckInUser[]): DbCheckInUser[] {
+  return [...users].sort((a, b) => {
+    const countA = Number(a.checkin_count) || 0;
+    const countB = Number(b.checkin_count) || 0;
+    if (countB !== countA) {
+      return countB - countA;
+    }
+    const timeA = new Date(a.last_checkin_at || a.created_at || 0).getTime();
+    const timeB = new Date(b.last_checkin_at || b.created_at || 0).getTime();
+    if (timeB !== timeA) {
+      return timeB - timeA;
+    }
+    return (Number(b.id) || 0) - (Number(a.id) || 0);
+  });
+}
+
 export async function getLeaderboardFromNeon(): Promise<LeaderboardResult> {
   try {
     const res = await fetch('/api/leaderboard');
     if (!res.ok) {
-      return { users: SEED_LEADERBOARD, totalCheckIns: 18, totalUsers: 14 };
+      return { users: sortLeaderboardUsers(SEED_LEADERBOARD), totalCheckIns: 18, totalUsers: 14 };
     }
     const data = await res.json();
+    let rawList: DbCheckInUser[] = [];
     if (Array.isArray(data)) {
-      return { users: data, totalCheckIns: data.length, totalUsers: data.length };
+      rawList = data;
+    } else if (Array.isArray(data.users) && data.users.length > 0) {
+      rawList = data.users;
+    } else {
+      rawList = SEED_LEADERBOARD;
     }
+    const sortedUsers = sortLeaderboardUsers(rawList);
     return {
-      users: Array.isArray(data.users) && data.users.length > 0 ? data.users : SEED_LEADERBOARD,
-      totalCheckIns: Number(data.totalCheckIns) || 18,
-      totalUsers: Number(data.totalUsers) || 14
+      users: sortedUsers,
+      totalCheckIns: Number(data.totalCheckIns) || sortedUsers.length,
+      totalUsers: Number(data.totalUsers) || sortedUsers.length
     };
   } catch (err) {
     console.warn('API /api/leaderboard offline, using fallback list');
-    return { users: SEED_LEADERBOARD, totalCheckIns: 18, totalUsers: 14 };
+    return { users: sortLeaderboardUsers(SEED_LEADERBOARD), totalCheckIns: 18, totalUsers: 14 };
   }
 }
 

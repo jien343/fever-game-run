@@ -23,7 +23,11 @@ const HowToWatchFever = () => {
     },
     {
       question: 'Are Indiana Fever games blacked out in my area?',
-      answer: 'Regional blackouts may apply if you live in the Indiana Fever broadcast territory and try to watch via WNBA League Pass. Games broadcast on local RSNs are typically blacked out on League Pass within that region. National broadcasts on ION, ESPN, or Prime Video are not subject to regional blackouts.'
+      answer: 'Regional blackouts may apply if you live in the Indiana Fever broadcast territory and try to watch via WNBA League Pass. Games broadcast on local RSNs are typically blacked out on League Pass within that region. However, fans can bypass regional blackouts by using a high-speed sports VPN like Surfshark to switch virtual IP locations to an out-of-market region and stream live seamlessly.'
+    },
+    {
+      question: 'How do I bypass WNBA League Pass blackouts to watch live?',
+      answer: 'To watch live when blacked out: 1) Open Surfshark VPN. 2) Connect to a server in a different U.S. state or an international location outside the Fever local market. 3) Open or reload WNBA League Pass, and the live stream will immediately play in HD without blackout restrictions.'
     },
     {
       question: 'How much does WNBA League Pass cost?',
@@ -168,13 +172,21 @@ const HowToWatchFever = () => {
                 </thead>
                 <tbody className="divide-y divide-gray-100">
                   <tr className="bg-green-50">
-                    <td className="px-4 py-3 font-semibold text-gray-900">ION Television</td>
-                    <td className="px-4 py-3 text-green-700 font-semibold">Free (antenna)</td>
+                    <td className="px-4 py-3 font-semibold text-gray-900">
+                      <a href="https://www.iontelevision.com/" target="_blank" rel="noopener noreferrer" className="text-gray-900 hover:text-red-600 hover:underline">
+                        ION Television ↗
+                      </a>
+                    </td>
+                    <td className="px-4 py-3 text-green-700 font-semibold">Free (antenna / stream)</td>
                     <td className="px-4 py-3 text-gray-700">National ION schedule</td>
                     <td className="px-4 py-3 text-gray-700">None</td>
                   </tr>
                   <tr>
-                    <td className="px-4 py-3 font-semibold text-gray-900">Prime Video</td>
+                    <td className="px-4 py-3 font-semibold text-gray-900">
+                      <a href="https://www.amazon.com/gp/video/offers?tag=fevergame01-20" target="_blank" rel="noopener noreferrer" className="text-gray-900 hover:text-green-700 hover:underline">
+                        Prime Video ↗
+                      </a>
+                    </td>
                     <td className="px-4 py-3">
                       <a 
                         href="https://www.amazon.com/gp/video/offers?tag=fevergame01-20" 
@@ -182,32 +194,57 @@ const HowToWatchFever = () => {
                         rel="noopener noreferrer" 
                         className="text-green-600 font-bold hover:text-green-800 hover:underline"
                       >
-                        $14.99/mo (Prime)
+                        $14.99/mo (Prime Trial)
                       </a>
                     </td>
-                    <td className="px-4 py-3 text-gray-700">TNT Sports package</td>
+                    <td className="px-4 py-3 text-gray-700">TNT Sports live package</td>
                     <td className="px-4 py-3 text-gray-700">None</td>
                   </tr>
                   <tr className="bg-gray-50">
-                    <td className="px-4 py-3 font-semibold text-gray-900">ESPN / ABC</td>
-                    <td className="px-4 py-3 text-gray-700">Cable / Live TV sub</td>
+                    <td className="px-4 py-3 font-semibold text-gray-900">
+                      <a href="https://www.espn.com/watch/" target="_blank" rel="noopener noreferrer" className="text-gray-900 hover:text-red-600 hover:underline">
+                        ESPN / ABC ↗
+                      </a>
+                    </td>
+                    <td className="px-4 py-3 text-gray-700">Cable / ESPN App sub</td>
                     <td className="px-4 py-3 text-gray-700">ESPN national schedule</td>
                     <td className="px-4 py-3 text-gray-700">None</td>
                   </tr>
                   <tr>
-                    <td className="px-4 py-3 font-semibold text-gray-900">WNBA League Pass</td>
-                    <td className="px-4 py-3 text-gray-700">$12.99–$34.99/season</td>
+                    <td className="px-4 py-3 font-semibold text-gray-900">
+                      <a href="https://leaguepass.wnba.com/" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:text-blue-800 hover:underline">
+                        WNBA League Pass ↗
+                      </a>
+                    </td>
+                    <td className="px-4 py-3 text-gray-700">
+                      <a href="https://leaguepass.wnba.com/" target="_blank" rel="noopener noreferrer" className="text-gray-700 hover:underline">
+                        $12.99–$34.99/season
+                      </a>
+                    </td>
                     <td className="px-4 py-3 text-gray-700">All out-of-market games</td>
-                    <td className="px-4 py-3 text-red-600 font-medium">Local blackouts</td>
+                    <td className="px-4 py-3 text-red-600 font-medium">
+                      Local blackouts{' '}
+                      <a href="https://www.dpbolvw.net/click-101899690-15555070" target="_blank" rel="noopener noreferrer sponsored" className="text-blue-600 font-semibold underline ml-1 hover:text-blue-800">
+                        (Bypass with VPN)
+                      </a>
+                    </td>
                   </tr>
                   <tr className="bg-gray-50">
-                    <td className="px-4 py-3 font-semibold text-gray-900">YouTube TV</td>
+                    <td className="px-4 py-3 font-semibold text-gray-900">
+                      <a href="https://tv.youtube.com/" target="_blank" rel="noopener noreferrer" className="text-gray-900 hover:text-red-600 hover:underline">
+                        YouTube TV ↗
+                      </a>
+                    </td>
                     <td className="px-4 py-3 text-gray-700">$72.99/mo</td>
                     <td className="px-4 py-3 text-gray-700">ESPN, ABC, ION included</td>
                     <td className="px-4 py-3 text-gray-700">None</td>
                   </tr>
                   <tr>
-                    <td className="px-4 py-3 font-semibold text-gray-900">Hulu + Live TV</td>
+                    <td className="px-4 py-3 font-semibold text-gray-900">
+                      <a href="https://www.hulu.com/live-tv" target="_blank" rel="noopener noreferrer" className="text-gray-900 hover:text-green-600 hover:underline">
+                        Hulu + Live TV ↗
+                      </a>
+                    </td>
                     <td className="px-4 py-3 text-gray-700">$76.99/mo</td>
                     <td className="px-4 py-3 text-gray-700">ESPN, ABC included</td>
                     <td className="px-4 py-3 text-gray-700">None</td>
@@ -221,19 +258,67 @@ const HowToWatchFever = () => {
           <section className="mb-12">
             <div className="flex items-center mb-4">
               <Globe className="h-6 w-6 text-red-600 mr-3 flex-shrink-0" />
-              <h2 className="text-2xl font-bold text-gray-900">Regional Blackout Information</h2>
+              <h2 className="text-2xl font-bold text-gray-900">Regional Blackout Information & Live Workaround</h2>
             </div>
             <p className="text-gray-700 leading-relaxed mb-4">
-              Regional blackouts are the most common source of frustration for WNBA fans using League Pass. If you live within the Indiana Fever's designated broadcast territory — which covers most of Indiana and parts of surrounding states — games that are broadcast on the local regional sports network will be blacked out on WNBA League Pass.
+              Regional blackouts are the most common source of frustration for WNBA fans using League Pass. If you live within the Indiana Fever's designated broadcast territory — which covers most of Indiana and parts of surrounding states — games that are broadcast on the local regional sports network (RSN) will be automatically blacked out on WNBA League Pass during live play.
             </p>
             <p className="text-gray-700 leading-relaxed mb-4">
-              The good news is that nationally broadcast games on ION, ESPN, ABC, and Prime Video are never subject to regional blackouts. If you are an in-market fan, your best strategy is to combine a digital antenna for ION games with a cable, satellite, or live TV streaming subscription that includes ESPN and your local RSN.
+              Nationally broadcast games on ION, ESPN, ABC, and Prime Video (TNT Sports package) air live without regional blackout restrictions. However, for the majority of regular-season matchups carried exclusively on League Pass or regional feeds, in-market fans frequently run into the dreaded "Blackout: This content is not available in your region" screen.
             </p>
-            <div className="bg-yellow-50 border border-yellow-200 rounded-xl p-6 mb-4">
-              <h3 className="text-lg font-semibold text-yellow-800 mb-2">Blackout Workaround for In-Market Fans</h3>
-              <p className="text-yellow-700 text-sm leading-relaxed">
-                If you are in the Fever broadcast territory and want to use League Pass, all blacked-out games become available as full replays approximately three hours after the final buzzer. For live viewing, use ION (free antenna), ESPN (cable/streaming login), or Prime Video for nationally broadcast matchups.
-              </p>
+
+            {/* High Converting Surfshark VPN Blackout CTA Card */}
+            <div className="bg-gradient-to-br from-slate-900 via-indigo-950 to-blue-900 text-white rounded-2xl p-6 sm:p-8 my-6 shadow-xl border border-indigo-700/50">
+              <div className="flex flex-col md:flex-row items-center justify-between gap-6">
+                <div className="space-y-3 text-center md:text-left">
+                  <div className="flex items-center justify-center md:justify-start gap-2">
+                    <span className="inline-block bg-cyan-400 text-slate-950 text-xs font-black px-3 py-1 rounded-full uppercase tracking-wider">
+                      ⚡ Instant Live Stream Solution
+                    </span>
+                    <span className="text-xs text-cyan-200 font-semibold">Fast 10Gbps Sports Servers</span>
+                  </div>
+                  <h3 className="text-2xl sm:text-3xl font-black tracking-tight text-white">
+                    Bypass Regional Blackouts with Surfshark VPN
+                  </h3>
+                  <p className="text-indigo-100 text-sm max-w-xl leading-relaxed">
+                    Don't wait hours for game replays! Change your virtual IP location in seconds, bypass local WNBA League Pass broadcast restrictions, and stream every Caitlin Clark game live in full 4K/HD with zero buffering.
+                  </p>
+                  <ul className="text-xs text-indigo-200 space-y-1 pt-1">
+                    <li className="flex items-center justify-center md:justify-start gap-1.5">
+                      <span className="text-cyan-400 font-bold">✔</span> Unlimited simultaneous devices (TV, Phone, Laptop, Tablet)
+                    </li>
+                    <li className="flex items-center justify-center md:justify-start gap-1.5">
+                      <span className="text-cyan-400 font-bold">✔</span> 3,200+ servers in 100 countries including all major U.S. states
+                    </li>
+                  </ul>
+                </div>
+                <div className="shrink-0 flex flex-col items-center gap-2 w-full md:w-auto">
+                  <a
+                    href="https://www.dpbolvw.net/click-101899690-15555070"
+                    target="_blank"
+                    rel="noopener noreferrer sponsored"
+                    className="inline-flex items-center justify-center w-full sm:w-auto px-8 py-4 text-base font-black text-slate-950 bg-gradient-to-r from-cyan-400 via-teal-300 to-amber-300 hover:from-cyan-300 hover:to-amber-200 rounded-full shadow-lg hover:shadow-cyan-500/25 transition-transform transform hover:scale-105"
+                  >
+                    Get Surfshark (80%+ Off Deal) →
+                  </a>
+                  <span className="text-xs text-indigo-300">30-Day Money-Back Guarantee · Risk-Free</span>
+                </div>
+              </div>
+            </div>
+
+            <div className="bg-blue-50 border border-blue-200 rounded-xl p-6 mb-4">
+              <h3 className="text-lg font-semibold text-blue-900 mb-2">How to Watch Live When Blacked Out (3-Step Guide)</h3>
+              <ol className="list-decimal list-inside text-blue-800 text-sm space-y-2">
+                <li>
+                  <strong>Connect to a VPN:</strong> Open <a href="https://www.dpbolvw.net/click-101899690-15555070" target="_blank" rel="noopener noreferrer sponsored" className="text-blue-600 font-bold underline hover:text-blue-800">Surfshark VPN</a> and select a server outside the Fever home broadcast territory (such as New York, Dallas, or an international node).
+                </li>
+                <li>
+                  <strong>Open WNBA League Pass:</strong> Launch the <a href="https://leaguepass.wnba.com/" target="_blank" rel="noopener noreferrer" className="text-blue-600 font-bold underline hover:text-blue-800">WNBA League Pass</a> app or website in your browser.
+                </li>
+                <li>
+                  <strong>Enjoy the Live Stream:</strong> The regional blackout block will disappear immediately, giving you instant real-time access to the live broadcast!
+                </li>
+              </ol>
             </div>
           </section>
 

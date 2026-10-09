@@ -16,7 +16,7 @@ const Contact = () => {
     <div className="min-h-screen bg-gray-50 py-12">
       <Helmet>
         <title>Contact Us | Fever Game Today</title>
-        <meta name="description" content="Get in touch with the Fever Game Today team for inquiries, feedback, or support." />
+        <meta name="description" content="Get in touch with the Fever Game Today team for inquiries, feedback, score correction requests, or support regarding our WNBA basketball coverage." />
         <link rel="canonical" href="https://fevergame.space/contact" />
       </Helmet>
 

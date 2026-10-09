@@ -64,7 +64,7 @@ const News = () => {
     <div className="min-h-screen bg-gray-50 py-12">
       <Helmet>
         <title>Indiana Fever News & Updates | Fever Game Today</title>
-        <meta name="description" content="Stay updated with the latest news, game analysis, and player updates for the Indiana Fever. Coverage of Caitlin Clark, Aliyah Boston, and more." />
+        <meta name="description" content="Stay updated with the latest Indiana Fever news, post-game score recaps, injury reports, and tactical Caitlin Clark breakdowns for tonight and today matchups." />
         <link rel="canonical" href="https://fevergame.space/news" />
       </Helmet>
 

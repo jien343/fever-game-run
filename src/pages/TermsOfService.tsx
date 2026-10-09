@@ -1,14 +1,15 @@
 import React from 'react';
 import { Shield } from 'lucide-react';
-import SEOHead from '../components/SEOHead';
+import { Helmet } from 'react-helmet-async';
 
 const TermsOfService = () => {
   return (
     <div className="min-h-screen bg-gray-50 py-12 px-4 sm:px-6 lg:px-8">
-      <SEOHead 
-        title="Terms of Service | Fever Game Today"
-        description="Terms of Service and usage guidelines for Fever Game Today."
-      />
+      <Helmet>
+        <title>Terms of Service | Fever Game Today</title>
+        <meta name="description" content="Review the terms of service, guidelines, and user agreement for Fever Game Today. Understand our WNBA score tracking and video highlight policies." />
+        <link rel="canonical" href="https://fevergame.space/terms" />
+      </Helmet>
       
       <div className="max-w-3xl mx-auto bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden">
         <div className="bg-gradient-to-r from-gray-900 to-gray-800 p-8 text-center">
